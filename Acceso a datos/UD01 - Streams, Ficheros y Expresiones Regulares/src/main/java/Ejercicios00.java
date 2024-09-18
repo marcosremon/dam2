@@ -1,3 +1,4 @@
+import java.lang.reflect.Array;
 import java.util.*;
 
 public class Ejercicios00 {
@@ -88,27 +89,10 @@ public class Ejercicios00 {
         //Ej3. Dada una lista de Strings, escribir una función que devuelva la longitud del
         //string más largo en la lista.
 
-        List<String> listaStr = new ArrayList<>();
-        listaStr.add("hola");
-        listaStr.add("mercadona");
-        listaStr.add("mundo");
-        devolverPalabraMasLarga(listaStr);
-    }
+        List<String> nombresList = new ArrayList<>(Arrays.asList("Hola", "Adios", "Mario", "Palomo"));
 
-    private static void devolverPalabraMasLarga(List<String> listaStr) {
-        int elMasGrande = 0;
-        String palabraMasLarga = null;
-        for (String i : listaStr) {
-            int contador = 0;
-            for (char j : i.toCharArray()) {
-                contador++;
-                if (contador > elMasGrande) {
-                    elMasGrande = contador;
-                    palabraMasLarga = i;
-                }
-            }
-        }
-        System.out.println("la palabra mas larga es: " + palabraMasLarga + " y tiene " + elMasGrande + " letras");
+        nombresList.sort(Comparator.comparing(String::length).reversed());
+        System.out.println(nombresList.get(0));
     }
 
 //----------------------------------------------------------------------------------------------------------------------
@@ -117,10 +101,7 @@ public class Ejercicios00 {
         //Ej4. Crear un Set de Strings y añadir elementos a él. Luego, imprimir todos los
         //elementos del Set. ¿Qué observas acerca del orden de los elementos?
 
-        Set<String> set = new HashSet<>();
-        set.add("a");
-        set.add("a");
-        set.add("b");
+        Set<String> set = new HashSet<>(Arrays.asList("arbeloa", "benito", "arbeloa"));
         System.out.println(set);
     }
 
@@ -130,13 +111,7 @@ public class Ejercicios00 {
         //Ej5. Dada una lista de números enteros, escribir una función que devuelva un Set
         //que contenga solo los números únicos de la lista original.
 
-        List<Integer> numerosList = new ArrayList<>();
-        numerosList.add(1);
-        numerosList.add(1);
-        numerosList.add(2);
-        numerosList.add(3);
-
-        Set<Integer> set = new HashSet<>(numerosList);
+        Set<Integer> set = new HashSet<>(Arrays.asList(1, 2, 1, 1, 2, 3, 4));
         System.out.println(set);
     }
 
@@ -146,11 +121,7 @@ public class Ejercicios00 {
         //Ej6. Dada una lista de Strings, escribir una función que devuelva un Set que
         //contenga solo los Strings únicos de la lista original.
 
-        List<String> stringsList = new ArrayList<>();
-        stringsList.add("hola");
-        stringsList.add("hola");
-        stringsList.add("adios");
-        stringsList.add("aaaa");
+        List<String> stringsList = new ArrayList<>(Arrays.asList("hola", "hola", "adios", "aaaa"));
 
         Set<String> set = new HashSet<>(stringsList);
         System.out.println(set);
@@ -207,18 +178,13 @@ public class Ejercicios00 {
         //de los estudiantes.
 
         Map<String, String> estudiantes = new HashMap<>();
-        List<Estudiante> estudiantesList = new ArrayList<>();
 
-        Estudiante estudiante1 = new Estudiante("juan", 20, "info");
-        Estudiante estudiante2 = new Estudiante("manuel", 20, "mecanica");
+        Estudiante estudiante1 = new Estudiante("juan", 20, "informatica");
+        Estudiante estudiante2 = new Estudiante("manuel Moro", 20, "mecanica");
         Estudiante estudiante3 = new Estudiante("alex", 20, "cocina");
-        estudiantesList.add(estudiante1);
-        estudiantesList.add(estudiante2);
-        estudiantesList.add(estudiante3);
+        List<Estudiante> estudiantesList = new ArrayList<>(Arrays.asList(estudiante1, estudiante2, estudiante3));
 
-        for (Estudiante i : estudiantesList) {
-            estudiantes.put(i.getNombre() + " ", " " + i.getEdad() + ", " + i.getgrado() + "\n");
-        }
+        estudiantesList.forEach(e -> estudiantes.put(e.getNombre() + " ", " " + e.getEdad() + " " + e.getgrado()));
         System.out.println(estudiantes);
     }
 
@@ -251,9 +217,9 @@ public class Ejercicios00 {
         //hacer esto, puedes utilizar el método “removeIf()” de “ArrayList”, que toma un “Predicate” (que
         //es una interfaz funcional que puedes implementar con una función lambda).
 
-        List<String> nombresList = new ArrayList<>(Arrays.asList("hola", "adios", "mario", "palomo"));
+        List<String> nombresList = new ArrayList<>(Arrays.asList("Hola", "Adios", "Mario", "Palomo"));
 
-        nombresList.removeIf(nombre -> !nombre.startsWith("a"));
+        nombresList.removeIf(nombre -> !nombre.startsWith("A"));
         System.out.println(nombresList);
     }
 }
