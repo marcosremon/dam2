@@ -1,3 +1,5 @@
+import Clases.Estudiante;
+
 import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 

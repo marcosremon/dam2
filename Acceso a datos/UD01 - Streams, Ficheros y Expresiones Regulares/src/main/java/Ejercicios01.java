@@ -1,9 +1,15 @@
+import java.io.*;
+import java.nio.channels.FileChannel;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
+import java.util.function.Supplier;
+import java.util.stream.Collector;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
+import Clases.*;
 
 public class Ejercicios01 {
     public static void main(String[] args) {
@@ -131,6 +137,8 @@ public class Ejercicios01 {
         //Ej4. Generar una secuencia de números aleatorios: Utiliza un “Supplier” para generar e
         //imprimir una secuencia de diez números aleatorios.
 
+        Supplier<Integer> randomSupplier = () -> new Random().nextInt();
+        Stream.generate(randomSupplier).limit(10).forEach(System.out::println);
     }
 
 //----------------------------------------------------------------------------------------------------------------------
@@ -140,6 +148,10 @@ public class Ejercicios01 {
         //nombres. Utiliza un “Predicate” para filtrar la lista y mantener solo los nombres
         //que comienzan con una letra específica (por ejemplo, "A").
 
+        List<String> listaStrings = new ArrayList<>(Arrays.asList("hola", "manolo", "javier", "andres"));
+        Predicate<String> filtradoLetras = l -> !l.startsWith("a");
+        listaStrings.removeIf(filtradoLetras);
+        System.out.println(listaStrings);
     }
 
 //----------------------------------------------------------------------------------------------------------------------
@@ -149,6 +161,9 @@ public class Ejercicios01 {
         //enteros. Utiliza un “Consumer” para aplicar una operación a cada número en la
         //lista (por ejemplo, multiplicar cada número por 2).
 
+        List<Integer> listaIns = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5));
+        Consumer<Integer> consumer = n -> System.out.println(n * 2);
+        listaIns.forEach(consumer);
     }
 
 //----------------------------------------------------------------------------------------------------------------------
@@ -158,14 +173,35 @@ public class Ejercicios01 {
         //Crea una lista con diferentes frutas. Llámala frutería
         //Obtén una lista de Strings, que contenga el nombre de las frutas que contenía la frutería.
 
+        Fruta fruta1 = new Fruta("manzana", "roja");
+        Fruta fruta2 = new Fruta("pera", "verde");
+
+        List<Fruta> fruteria = new ArrayList<>(Arrays.asList(fruta1, fruta2));
+        List<String> nombreFruta = new ArrayList<>();
+
+        fruteria.forEach(f -> nombreFruta.add(f.getNombre()));
+        System.out.println(nombreFruta);
     }
 
 //----------------------------------------------------------------------------------------------------------------------
 
     private static void ej8() {
-        //Ej8. Utiliza la misma estructura del ejercicio 1, y ahora imprime por pantalla los colores de las
+        //Ej8. Utiliza la misma estructura del ejercicio 7, y ahora imprime por pantalla los colores de las
         //diferentes frutas. (No pueden aparecer colores repetidos.)
 
+        Fruta fruta1 = new Fruta("manzana", "roja");
+        Fruta fruta2 = new Fruta("pera", "verde");
+        Fruta fruta3 = new Fruta("mandarina", "verde");
+
+        List<Fruta> fruteria = new ArrayList<>(Arrays.asList(fruta1, fruta2));
+        List<String> colorFrutas = new ArrayList<>();
+
+        fruteria.forEach(f -> {
+            if (!colorFrutas.contains(f.getColor())) {
+                colorFrutas.add(f.getColor());
+            }
+        });
+        System.out.println(colorFrutas);
     }
 
 //----------------------------------------------------------------------------------------------------------------------
@@ -174,6 +210,9 @@ public class Ejercicios01 {
         //Ej9. Crea una lista de números.
         //Usando stream, calcula la suma de los cuadrados de todos los números de la lista.
 
+        List<Integer> listaIns = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5));
+        int sumaNumeros = listaIns.stream().map(n -> n * n).reduce(0, Integer::sum);
+        System.out.println(sumaNumeros);
     }
 
 //----------------------------------------------------------------------------------------------------------------------
@@ -183,6 +222,15 @@ public class Ejercicios01 {
         //- Ordenar una lista de personas por edad de forma descendente
         //- Imprimimos la lista de personas ordenada por nombre de forma ascendente
 
+        Persona persona1 = new Persona("juan", 25);
+        Persona persona2 = new Persona("alberto", 20);
+        Persona persona3 = new Persona("manue", 13);
+
+        List<Persona> personas = new ArrayList<>(Arrays.asList(persona1, persona2, persona3));
+        personas.sort(Comparator.comparingInt(Persona::getEdad).reversed());
+        System.out.println(personas);
+        personas.sort(Comparator.comparing(Persona::getNombre));
+        personas.forEach(p -> System.out.print(p.getNombre() + " "));
     }
 
 //----------------------------------------------------------------------------------------------------------------------
@@ -194,30 +242,67 @@ public class Ejercicios01 {
         //- Dado un departamento mostraremos sus empleados. Por ejemplo, muestra los empleados de ventas.
         //- Dado un nombre de empleado, mostraremos su departamento.
 
+        Empleado empleado1 = new Empleado("Ana García", "Recursos Humanos");
+        Empleado empleado2 = new Empleado("Luis Pérez", "IT");
+        Empleado empleado3 = new Empleado("María López", "Marketing");
+        Empleado empleado4 = new Empleado("Carlos Martínez", "Finanzas");
+        Empleado empleado5 = new Empleado("Martin", "Finanzas");
+
+        List<Empleado> empleados = new ArrayList<>(Arrays.asList(empleado1, empleado2, empleado3, empleado4, empleado5));
+        empleados.sort(Comparator.comparing(Empleado::getDepartamento));
+        System.out.println(empleados);
+        Map<String, Long> conadorDepartamentos = empleados.stream().collect(
+                Collectors.groupingBy(Empleado::getDepartamento, Collectors.counting()));
+        conadorDepartamentos.forEach((dep, cont) -> System.out.println("el departamento: " + dep + " aparece: " +
+                cont + " veces"));
     }
 
 //----------------------------------------------------------------------------------------------------------------------
 
     private static void ej12() {
-        //Ej11. Contar el número de líneas en un archivo: Escribir un programa en Java que lea un
+        //Ej12. Contar el número de líneas en un archivo: Escribir un programa en Java que lea un
         //archivo de texto y cuente el número de líneas que contiene. El programa debe imprimir el
         //número de líneas en la consola.
 
+        try (BufferedReader bufferedReader = new BufferedReader(new FileReader("src/main/java/data.csv"))) {
+            String linea;
+            int contador = 0;
+            while ((linea = bufferedReader.readLine()) != null) {
+                contador++;
+            }
+            System.out.println("El archivo tiene: " + contador + " líneas");
+        } catch (FileNotFoundException e) {
+            System.out.println("El archivo no fue encontrado: " + e.getMessage());
+        } catch (IOException e) {
+            System.out.println("Ocurrió un error de entrada/salida: " + e.getMessage());
+        }
     }
 
 //----------------------------------------------------------------------------------------------------------------------
 
     private static void ej13() {
-        //Ej12. Copiar un archivo: Escribir un programa en Java que copie el contenido de un archivo en
+        //Ej13. Copiar un archivo: Escribir un programa en Java que copie el contenido de un archivo en
         //otro archivo. El programa debe tomar como entrada el nombre del archivo de origen y el
         //nombre del archivo de destino
 
+        File nuevoFichero = new File("src/main/java/copiaData.txt");
+
+        try (BufferedReader bufferedReader = new BufferedReader(new FileReader("data.csv"));
+          BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("copiaData.txt"));) {
+            nuevoFichero.createNewFile();
+            String linea;
+            while ((linea = bufferedReader.readLine()) != null) {
+                bufferedWriter.write(linea);
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 //----------------------------------------------------------------------------------------------------------------------
 
     private static void ej14() {
-        //Ej13. Cifrado y descifrado de archivos: Escribir un programa en Java que permita cifrar y
+        //Ej14. Cifrado y descifrado de archivos: Escribir un programa en Java que permita cifrar y
         //descifrar un archivo utilizando un algoritmo de cifrado. El programa debe tomar como
         //entrada el nombre del archivo de origen, el nombre del archivo de destino, y una clave de
         //cifrado. El cifrado debe ser reversible, es decir, el archivo cifrado debe poder ser
@@ -228,18 +313,36 @@ public class Ejercicios01 {
 //----------------------------------------------------------------------------------------------------------------------
 
     private static void ej15() {
-        //Ej14. Combinación de archivos en uno solo: Escribir un programa en Java que permita
+        //Ej15. Combinación de archivos en uno solo: Escribir un programa en Java que permita
         //combinar varios archivos en uno solo. El programa debe tomar como entrada una lista de
         //archivos de origen y el nombre del archivo de destino. El programa debe leer cada archivo
         //de origen y escribir su contenido en el archivo de destino en el orden en que se
         //especificaron en la lista
 
+        File fichero1 = new File("data.csv");
+        File fichero2 = new File("congreso.csv");
+        File ficheroConjunto = new File("ficheroConjunto.csv");
+        List<File> listaFicheros = new ArrayList<>(Arrays.asList(fichero1, fichero2));
+
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(ficheroConjunto))) {
+            for (File f : listaFicheros) {
+                try (BufferedReader br = new BufferedReader(new FileReader(f))) {
+                    String linea;
+                    while ((linea = br.readLine()) != null) {
+                        bw.write(linea);
+                        bw.newLine();
+                    }
+                }
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 //----------------------------------------------------------------------------------------------------------------------
 
     private static void ej16() {
-        //Ej15. Crea una clase Producto con los siguientes atributos:
+        //Ej16. Crea una clase Producto con los siguientes atributos:
             //private int id;
             //private String nombre;
             //private double precio;
@@ -254,7 +357,7 @@ public class Ejercicios01 {
 //----------------------------------------------------------------------------------------------------------------------
 
     private static void ej17() {
-        //Ej16. Devuelve todas las rutas a partir de un directorio dado que cumplen una condición. Por
+        //Ej17. Devuelve todas las rutas a partir de un directorio dado que cumplen una condición. Por
         //ejemplo, busca todos los archivos “*.txt”
 
     }
@@ -262,7 +365,7 @@ public class Ejercicios01 {
 //----------------------------------------------------------------------------------------------------------------------
 
     private static void ej18() {
-        //Ej17. Al ejercicio anterior, añádele una profundidad máxima, por ejemplo de 3, es decir si la
+        //Ej18. Al ejercicio anterior, añádele una profundidad máxima, por ejemplo de 3, es decir si la
         //ruta que le has dicho es /home/Juanma, si la profundidad es 3 solo escanearía 3 niveles
         //de directorios interiores.
 
