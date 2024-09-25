@@ -6,6 +6,8 @@ import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -352,6 +354,47 @@ public class Ejercicios01 {
         //arrayList y que guarde los productos en un fichero de acceso aleatorio.
         //Ahora debes de leer y mostrar por consola el contenido del fichero.
 
+        Producto producto1 = new Producto(1, "Manzana", 0.50, true, 'A');
+        Producto producto2 = new Producto(2, "Leche", 1.20, false, 'B');
+        Producto producto3 = new Producto(3, "Pan", 0.80, true, 'B');
+        Producto producto4 = new Producto(4, "Cereal", 2.50, false, 'C');
+        Producto producto5 = new Producto(5, "Jugo de Naranja", 1.50, true, 'A');
+
+        List<Producto> productos = new ArrayList<>(Arrays.asList(producto1, producto2, producto3, producto4, producto5));
+        File filePath = new File("productos.dat");
+
+        //Escribir en el fichero
+        try (RandomAccessFile raf = new RandomAccessFile(filePath, "rw")) {
+            for (Producto product : productos) {
+                raf.writeInt(product.getId());
+                raf.writeUTF(product.getNombre());
+                raf.writeDouble(product.getPrecio());
+                raf.writeBoolean(product.isDescuento());
+                raf.writeChar(product.getTipo());
+            }
+
+            //Leer Fichero
+            try (RandomAccessFile raf2 = new RandomAccessFile(filePath, "r")){
+                int blockLength = Integer.BYTES + 10 + Double.BYTES + 1 + Character.BYTES;
+                raf2.seek(0);
+                while (raf2.getFilePointer() < raf2.length()) {
+                    int id = raf2.readInt();
+                    String name = raf2.readUTF();
+                    double price = raf2.readDouble();
+                    boolean discount = raf2.readBoolean();
+                    char type = raf2.readChar();
+
+                    Producto producto = new Producto(id, name, price, discount, type);
+                    System.out.println(producto);
+                }
+            } catch (FileNotFoundException e) {
+                throw new RuntimeException(e);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 //----------------------------------------------------------------------------------------------------------------------
@@ -360,6 +403,31 @@ public class Ejercicios01 {
         //Ej17. Devuelve todas las rutas a partir de un directorio dado que cumplen una condición. Por
         //ejemplo, busca todos los archivos “*.txt”
 
+        String originalFile = "congreso.csv";
+        String switchedFile = "archivoRemplazado.csv";
+        String findString = "PSOE";
+        String switchedString = "(Pedro sanchez os engaña)";
+
+        findAndReplace(findString, switchedString, originalFile, switchedFile);
+    }
+
+    private static void findAndReplace(String findString, String switchedString, String originalFile,
+                                       String switchedFile) {
+        File of = new File(originalFile);
+        File sf = new File(switchedFile);
+        try (BufferedReader br = new BufferedReader(new FileReader(of))) {
+            try (BufferedWriter bw = new BufferedWriter(new FileWriter(sf))) {
+                String line = "";
+                while ((line = br.readLine()) != null) {
+                    String modLine = line.replace(findString, switchedString);
+                    bw.write(modLine + "\n");
+                }
+            }
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 //----------------------------------------------------------------------------------------------------------------------
@@ -377,6 +445,23 @@ public class Ejercicios01 {
         //Ej19. Extraer todas las direcciones IP de un texto:
         //Descripción: Dado un texto, extraer todas las direcciones IP válidas.
 
+        String filePath = "ips.txt";
+        String regex = "^\\d{1,3}(\\.\\d{1,3}){3}$";
+        Pattern pattern = Pattern.compile(regex);
+
+        try (BufferedReader br = new BufferedReader(new FileReader(new File(filePath)))) {
+            String line = null;
+            while ((line = br.readLine()) != null) {
+                Matcher matcher = pattern.matcher(line);
+                while (matcher.find()) {
+                    System.out.println(matcher.group());
+                }
+            }
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 //----------------------------------------------------------------------------------------------------------------------
