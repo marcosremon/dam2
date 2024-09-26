@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Calculator</string>
+    <string name="tvBienvenido">Wellcome to my calculator app</string>
+    <string name="tvPrimerNumero">Type the first number</string>
+    <string name="tvSegundoNumero">Type the second number</string>
+    <string name="etNum1">number 1</string>
+    <string name="etNum2">number 2</string>
+    <string name="btnSumar">plus</string>
+    <string name="btnRestar">minus</string>
+    <string name="btnMultiplicar">times</string>
+    <string name="btnDividir">divided</string>
+    <string name="tvRespuesta">the result is:</string>
+</resources>

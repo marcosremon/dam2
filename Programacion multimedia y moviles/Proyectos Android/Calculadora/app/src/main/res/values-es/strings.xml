@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Calculadora</string>
+    <string name="tvBienvenido">Bienvenidos a mi app calculadora</string>
+    <string name="tvPrimerNumero">Introducir el primer numero</string>
+    <string name="tvSegundoNumero">Introducir el segundo numero</string>
+    <string name="etNum1">Introducir el segundo numero</string>
+    <string name="etNum2">Introducir el segundo numero</string>
+    <string name="btnSumar">SUMAR</string>
+    <string name="btnRestar">RESTAR</string>
+    <string name="btnMultiplicar">MULT</string>
+    <string name="btnDividir">DIVIDIR</string>
+    <string name="tvRespuesta">el resultado es:</string>
+</resources>

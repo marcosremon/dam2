@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/main"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+        <TextView
+            android:id="@+id/tvBienvenido"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/tvBienvenido"
+            android:textSize="30dp"
+            android:gravity="left"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginBottom="30dp" />
+
+        <ImageView
+            android:id="@+id/imgCalc"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/calculadora"
+            android:layout_marginBottom="15dp" />
+
+        <TextView
+            android:id="@+id/tvPrimerNumero"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="@string/tvPrimerNumero"
+            android:gravity="left"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="30dp" />
+
+        <EditText
+            android:id="@+id/etNum1"
+            android:inputType="number"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginHorizontal="20sp"
+            android:hint="@string/etNum1"
+            android:gravity="left"
+            android:maxLines="1" />
+
+        <TextView
+            android:id="@+id/tvSegundoNumero"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="@string/tvSegundoNumero"
+            android:gravity="left"
+            android:layout_marginHorizontal="20dp" />
+
+        <EditText
+            android:id="@+id/etNum2"
+            android:inputType="number"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginHorizontal="20sp"
+            android:hint="@string/etNum2"
+            android:gravity="left"
+            android:maxLines="1" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="16dp">
+
+            <Button
+                android:id="@+id/btnSumar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/btnSumar" />
+
+            <Button
+                android:id="@+id/btnRestar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/btnRestar" />
+
+            <Button
+                android:id="@+id/btnMultiplicar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/btnMultiplicar" />
+
+            <Button
+                android:id="@+id/btnDividir"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/btnDividir" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvRespuesta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/tvRespuesta"
+            android:gravity="left"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="30dp" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>

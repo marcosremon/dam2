@@ -11,12 +11,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
-        android:src="@drawable/img" />
+        android:src="@drawable/messi" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="¿que edad tienes?"
+        android:text="¿que edad tienes pibe?"
         android:textSize="20sp"
         android:layout_marginHorizontal="20dp"
         android:textStyle="bold"
@@ -24,6 +24,7 @@
         />
 
     <EditText
+        android:inputType="number"
         android:id="@+id/etEdad"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
