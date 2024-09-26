@@ -54,7 +54,7 @@ class MainActivity : AppCompatActivity() {
             if (binding.etNum1.text.toString().isNotBlank() and binding.etNum2.text.toString().isNotBlank()) {
                 val num1 = binding.etNum1.text.toString().toInt()
                 val num2 = binding.etNum2.text.toString().toInt()
-                val multi = num1 + num2
+                val multi = num1 * num2
                 binding.tvRespuesta.text = "El resultado es: $multi"
             } else {
                 Toast.makeText(this, "debes introducir un valor numerico",
@@ -66,7 +66,7 @@ class MainActivity : AppCompatActivity() {
             if (binding.etNum1.text.toString().isNotBlank() and binding.etNum2.text.toString().isNotBlank()) {
                 val num1 = binding.etNum1.text.toString().toInt()
                 val num2 = binding.etNum2.text.toString().toInt()
-                val divi = num1 + num2
+                val divi = num1 / num2
                 binding.tvRespuesta.text = "El resultado es: $divi"
             } else {
                 Toast.makeText(this, "debes introducir un valor numerico",
