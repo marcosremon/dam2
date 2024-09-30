@@ -1,7 +1,6 @@
-import Clases.Estudiante;
+import Classes.Student;
 
 import java.util.*;
-import java.util.concurrent.atomic.AtomicInteger;
 
 public class Ejercicios00 {
     public static void main(String[] args) {
@@ -179,15 +178,16 @@ public class Ejercicios00 {
         //Map donde las claves son los nombres de los estudiantes y los valores son los objetos
         //de los estudiantes.
 
-        Map<String, String> estudiantes = new HashMap<>();
+        Map<String, String> students = new HashMap<>();
 
-        Estudiante estudiante1 = new Estudiante("juan", 20, "informatica");
-        Estudiante estudiante2 = new Estudiante("manuel Moro", 20, "mecanica");
-        Estudiante estudiante3 = new Estudiante("alex", 20, "cocina");
-        List<Estudiante> estudiantesList = new ArrayList<>(Arrays.asList(estudiante1, estudiante2, estudiante3));
+        Student Student1 = new Student("juan", 20, "informatica");
+        Student Student2 = new Student("manuel Moro", 20, "mecanica");
+        Student Student3 = new Student("alex", 20, "cocina");
+        List<Student> StudentsList = new ArrayList<>(Arrays.asList(Student1, Student2, Student3));
 
-        estudiantesList.forEach(e -> estudiantes.put(e.getNombre() + " ", " " + e.getEdad() + " " + e.getgrado()));
-        System.out.println(estudiantes);
+        StudentsList.forEach(student -> students.put(student.getName() + " ", " " + student.getAge() + " " +
+                student.getGrade()));
+        System.out.println(students);
     }
 
 //----------------------------------------------------------------------------------------------------------------------

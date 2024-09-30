@@ -1,23 +1,23 @@
-package Clases;
+package Classes;
 
-public class Fruta {
-    String nombre;
+public class Fruit {
+    String name;
     String color;
 
-    public Fruta() {
+    public Fruit() {
     }
 
-    public Fruta(String nombre, String color) {
-        this.nombre = nombre;
+    public Fruit(String name, String color) {
+        this.name = name;
         this.color = color;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getName() {
+        return name;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getColor() {
@@ -31,7 +31,7 @@ public class Fruta {
     @Override
     public String toString() {
         return "Fruta{" +
-                "nombre='" + nombre + '\'' +
+                "name='" + name + '\'' +
                 ", color='" + color + '\'' +
                 '}';
     }

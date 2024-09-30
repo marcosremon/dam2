@@ -1,17 +1,17 @@
-package Clases;
+package Classes;
 
-public class Productos {
+public class Products2 {
     String name;
     Double price;
     int category;
 
-    public Productos(String name, Double price, int category) {
+    public Products2(String name, Double price, int category) {
         this.name = name;
         this.price = price;
         this.category = category;
     }
 
-    public Productos() {
+    public Products2() {
     }
 
     public String getName() {

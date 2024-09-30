@@ -1,18 +1,14 @@
 import java.io.*;
-import java.nio.channels.FileChannel;
-import java.sql.Array;
 import java.util.*;
-import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
-import Clases.*;
+import Classes.*;
 
 public class Ejercicios01 {
     public static void main(String[] args) {
@@ -176,13 +172,13 @@ public class Ejercicios01 {
         //Crea una lista con diferentes frutas. Llámala frutería
         //Obtén una lista de Strings, que contenga el nombre de las frutas que contenía la frutería.
 
-        Fruta fruta1 = new Fruta("manzana", "roja");
-        Fruta fruta2 = new Fruta("pera", "verde");
+        Fruit fruta1 = new Fruit("manzana", "roja");
+        Fruit fruta2 = new Fruit("pera", "verde");
 
-        List<Fruta> fruteria = new ArrayList<>(Arrays.asList(fruta1, fruta2));
+        List<Fruit> fruteria = new ArrayList<>(Arrays.asList(fruta1, fruta2));
         List<String> nombreFruta = new ArrayList<>();
 
-        fruteria.forEach(f -> nombreFruta.add(f.getNombre()));
+        fruteria.forEach(f -> nombreFruta.add(f.getName()));
         System.out.println(nombreFruta);
     }
 
@@ -192,11 +188,11 @@ public class Ejercicios01 {
         //Ej8. Utiliza la misma estructura del ejercicio 7, y ahora imprime por pantalla los colores de las
         //diferentes frutas. (No pueden aparecer colores repetidos.)
 
-        Fruta fruta1 = new Fruta("manzana", "roja");
-        Fruta fruta2 = new Fruta("pera", "verde");
-        Fruta fruta3 = new Fruta("mandarina", "verde");
+        Fruit fruta1 = new Fruit("manzana", "roja");
+        Fruit fruta2 = new Fruit("pera", "verde");
+        Fruit fruta3 = new Fruit("mandarina", "verde");
 
-        List<Fruta> fruteria = new ArrayList<>(Arrays.asList(fruta1, fruta2));
+        List<Fruit> fruteria = new ArrayList<>(Arrays.asList(fruta1, fruta2));
         List<String> colorFrutas = new ArrayList<>();
 
         fruteria.forEach(f -> {
@@ -225,15 +221,15 @@ public class Ejercicios01 {
         //- Ordenar una lista de personas por edad de forma descendente
         //- Imprimimos la lista de personas ordenada por nombre de forma ascendente
 
-        PersonaSimple persona1 = new PersonaSimple("juan", 25);
-        PersonaSimple persona2 = new PersonaSimple("alberto", 20);
-        PersonaSimple persona3 = new PersonaSimple("manue", 13);
+        Person3 persona1 = new Person3("juan", 25);
+        Person3 persona2 = new Person3("alberto", 20);
+        Person3 persona3 = new Person3("manue", 13);
 
-        List<PersonaSimple> personas = new ArrayList<>(Arrays.asList(persona1, persona2, persona3));
-        personas.sort(Comparator.comparingInt(PersonaSimple::getEdad).reversed());
+        List<Person3> personas = new ArrayList<>(Arrays.asList(persona1, persona2, persona3));
+        personas.sort(Comparator.comparingInt(Person3::getAge).reversed());
         System.out.println(personas);
-        personas.sort(Comparator.comparing(PersonaSimple::getNombre));
-        personas.forEach(p -> System.out.print(p.getNombre() + " "));
+        personas.sort(Comparator.comparing(Person3::getName));
+        personas.forEach(p -> System.out.print(p.getName() + " "));
     }
 
 //----------------------------------------------------------------------------------------------------------------------
@@ -245,17 +241,17 @@ public class Ejercicios01 {
         //- Dado un departamento mostraremos sus empleados. Por ejemplo, muestra los empleados de ventas.
         //- Dado un nombre de empleado, mostraremos su departamento.
 
-        Empleado empleado1 = new Empleado("Ana García", "Recursos Humanos");
-        Empleado empleado2 = new Empleado("Luis Pérez", "IT");
-        Empleado empleado3 = new Empleado("María López", "Marketing");
-        Empleado empleado4 = new Empleado("Carlos Martínez", "Finanzas");
-        Empleado empleado5 = new Empleado("Martin", "Finanzas");
+        Employed empleado1 = new Employed("Ana García", "Recursos Humanos");
+        Employed empleado2 = new Employed("Luis Pérez", "IT");
+        Employed empleado3 = new Employed("María López", "Marketing");
+        Employed empleado4 = new Employed("Carlos Martínez", "Finanzas");
+        Employed empleado5 = new Employed("Martin", "Finanzas");
 
-        List<Empleado> empleados = new ArrayList<>(Arrays.asList(empleado1, empleado2, empleado3, empleado4, empleado5));
-        empleados.sort(Comparator.comparing(Empleado::getDepartamento));
+        List<Employed> empleados = new ArrayList<>(Arrays.asList(empleado1, empleado2, empleado3, empleado4, empleado5));
+        empleados.sort(Comparator.comparing(Employed::getDepartment));
         System.out.println(empleados);
         Map<String, Long> conadorDepartamentos = empleados.stream().collect(
-                Collectors.groupingBy(Empleado::getDepartamento, Collectors.counting()));
+                Collectors.groupingBy(Employed::getDepartment, Collectors.counting()));
         conadorDepartamentos.forEach((dep, cont) -> System.out.println("el departamento: " + dep + " aparece: " +
                 cont + " veces"));
     }
@@ -267,17 +263,18 @@ public class Ejercicios01 {
         //archivo de texto y cuente el número de líneas que contiene. El programa debe imprimir el
         //número de líneas en la consola.
 
-        try (BufferedReader bufferedReader = new BufferedReader(new FileReader("Ficheros/data.csv"))) {
-            String linea;
+        String filePath = ImportFiles.getProduct("data.csv");
+        try (BufferedReader br = new BufferedReader(new FileReader(new File(filePath)))) {
+            String line = null;
             int contador = 0;
-            while ((linea = bufferedReader.readLine()) != null) {
+            while ((line = br.readLine()) != null) {
                 contador++;
             }
-            System.out.println("El archivo tiene: " + contador + " líneas");
+            System.out.println("el archivo tiene " + contador + " palabras");
         } catch (FileNotFoundException e) {
-            System.out.println("El archivo no fue encontrado: " + e.getMessage());
+            throw new RuntimeException(e);
         } catch (IOException e) {
-            System.out.println("Ocurrió un error de entrada/salida: " + e.getMessage());
+            throw new RuntimeException(e);
         }
     }
 
@@ -288,15 +285,18 @@ public class Ejercicios01 {
         //otro archivo. El programa debe tomar como entrada el nombre del archivo de origen y el
         //nombre del archivo de destino
 
-        File nuevoFichero = new File("Ficheros/copiaData.txt");
+        String dataFile = ImportFiles.getProduct("data.csv");
+        String switchedFile = ImportFiles.getProduct("data.csv");
 
-        try (BufferedReader bufferedReader = new BufferedReader(new FileReader("Ficheros/data.csv"));
-          BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("Ficheros/copiaData.txt"));) {
-            nuevoFichero.createNewFile();
-            String linea;
-            while ((linea = bufferedReader.readLine()) != null) {
-                bufferedWriter.write(linea);
+        try (BufferedReader br = new BufferedReader(new FileReader(new File(dataFile)))) {
+            try (BufferedWriter bw = new BufferedWriter(new FileWriter(new File(switchedFile)))) {
+                String linea;
+                while ((linea = br.readLine()) != null) {
+                    bw.write(linea);
+                }
             }
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -322,13 +322,13 @@ public class Ejercicios01 {
         //de origen y escribir su contenido en el archivo de destino en el orden en que se
         //especificaron en la lista
 
-        File fichero1 = new File("Ficheros/data.csv");
-        File fichero2 = new File("Ficheros/congreso.csv");
-        File ficheroConjunto = new File("Ficheros/ficheroConjunto.csv");
-        List<File> listaFicheros = new ArrayList<>(Arrays.asList(fichero1, fichero2));
+        File file1 = new File(ImportFiles.getProduct("data.csv"));
+        File file2 = new File(ImportFiles.getProduct("congreso.csv"));
+        File mergedFiles = new File(ImportFiles.getProduct("ficheroConjunto.csv"));
+        List<File> fileList = new ArrayList<>(Arrays.asList(file1, file2));
 
-        try (BufferedWriter bw = new BufferedWriter(new FileWriter(ficheroConjunto))) {
-            for (File file : listaFicheros) {
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(mergedFiles))) {
+            for (File file : fileList) {
                 try (BufferedReader br = new BufferedReader(new FileReader(file))) {
                     String linea;
                     while ((linea = br.readLine()) != null) {
@@ -355,23 +355,23 @@ public class Ejercicios01 {
         //arrayList y que guarde los productos en un fichero de acceso aleatorio.
         //Ahora debes de leer y mostrar por consola el contenido del fichero.
 
-        Producto producto1 = new Producto(1, "Manzana", 0.50, true, 'A');
-        Producto producto2 = new Producto(2, "Leche", 1.20, false, 'B');
-        Producto producto3 = new Producto(3, "Pan", 0.80, true, 'B');
-        Producto producto4 = new Producto(4, "Cereal", 2.50, false, 'C');
-        Producto producto5 = new Producto(5, "Jugo de Naranja", 1.50, true, 'A');
+        Product producto1 = new Product(1, "Manzana", 0.50, true, 'A');
+        Product producto2 = new Product(2, "Leche", 1.20, false, 'B');
+        Product producto3 = new Product(3, "Pan", 0.80, true, 'B');
+        Product producto4 = new Product(4, "Cereal", 2.50, false, 'C');
+        Product producto5 = new Product(5, "Jugo de Naranja", 1.50, true, 'A');
 
-        List<Producto> productos = new ArrayList<>(Arrays.asList(producto1, producto2, producto3, producto4, producto5));
-        File filePath = new File("Ficheros/productos.dat");
+        List<Product> productos = new ArrayList<>(Arrays.asList(producto1, producto2, producto3, producto4, producto5));
+        File filePath = new File(ImportFiles.getProduct("productos.dat"));
 
         //Escribir en el fichero
         try (RandomAccessFile raf = new RandomAccessFile(filePath, "rw")) {
-            for (Producto product : productos) {
+            for (Product product : productos) {
                 raf.writeInt(product.getId());
-                raf.writeUTF(product.getNombre());
-                raf.writeDouble(product.getPrecio());
-                raf.writeBoolean(product.isDescuento());
-                raf.writeChar(product.getTipo());
+                raf.writeUTF(product.getName());
+                raf.writeDouble(product.getPrice());
+                raf.writeBoolean(product.isDiscount());
+                raf.writeChar(product.getTipe());
             }
 
             //Leer Fichero
@@ -385,7 +385,7 @@ public class Ejercicios01 {
                     boolean discount = raf2.readBoolean();
                     char type = raf2.readChar();
 
-                    Producto producto = new Producto(id, name, price, discount, type);
+                    Product producto = new Product(id, name, price, discount, type);
                     System.out.println(producto);
                 }
             } catch (FileNotFoundException e) {
@@ -422,7 +422,7 @@ public class Ejercicios01 {
         //Ej19. Extraer todas las direcciones IP de un texto:
         //Descripción: Dado un texto, extraer todas las direcciones IP válidas.
 
-        String filePath = "Ficheros/ips.txt";
+        String filePath = ImportFiles.getProduct("ips.txt");
         String regex = "^\\d{1,3}(\\.\\d{1,3}){3}$";
         Pattern pattern = Pattern.compile(regex);
 
@@ -462,7 +462,7 @@ public class Ejercicios01 {
         //Ej21. Extraer todas las fechas en formato DD/MM/YYYY:
         //Descripción: Dado un texto, extraer todas las fechas en el formato DD/MM/YYYY.
 
-        String filePath = "Ficheros/fechasFormateadas.txt";
+        String filePath = ImportFiles.getProduct("fechasFormateadas.txt");
         String regex = "(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[0-2])/[0-9]{4}";
         Pattern pattern = Pattern.compile(regex);
 
@@ -506,7 +506,7 @@ public class Ejercicios01 {
         //Descripción: Dado un texto, extraer todas las palabras que empiezan con una letra
         //mayúscula.
 
-        String filePath = "Ficheros/ficheroMayusculas.txt";
+        String filePath = ImportFiles.getProduct("ficheroMayusculas.txt");
         String regex = "[A-Z]{1,}";
         Pattern pattern = Pattern.compile(regex);
 
