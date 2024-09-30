@@ -1,5 +1,6 @@
 import java.io.*;
 import java.nio.channels.FileChannel;
+import java.sql.Array;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Consumer;
@@ -224,14 +225,14 @@ public class Ejercicios01 {
         //- Ordenar una lista de personas por edad de forma descendente
         //- Imprimimos la lista de personas ordenada por nombre de forma ascendente
 
-        Persona persona1 = new Persona("juan", 25);
-        Persona persona2 = new Persona("alberto", 20);
-        Persona persona3 = new Persona("manue", 13);
+        PersonaSimple persona1 = new PersonaSimple("juan", 25);
+        PersonaSimple persona2 = new PersonaSimple("alberto", 20);
+        PersonaSimple persona3 = new PersonaSimple("manue", 13);
 
-        List<Persona> personas = new ArrayList<>(Arrays.asList(persona1, persona2, persona3));
-        personas.sort(Comparator.comparingInt(Persona::getEdad).reversed());
+        List<PersonaSimple> personas = new ArrayList<>(Arrays.asList(persona1, persona2, persona3));
+        personas.sort(Comparator.comparingInt(PersonaSimple::getEdad).reversed());
         System.out.println(personas);
-        personas.sort(Comparator.comparing(Persona::getNombre));
+        personas.sort(Comparator.comparing(PersonaSimple::getNombre));
         personas.forEach(p -> System.out.print(p.getNombre() + " "));
     }
 
@@ -266,7 +267,7 @@ public class Ejercicios01 {
         //archivo de texto y cuente el número de líneas que contiene. El programa debe imprimir el
         //número de líneas en la consola.
 
-        try (BufferedReader bufferedReader = new BufferedReader(new FileReader("src/main/java/data.csv"))) {
+        try (BufferedReader bufferedReader = new BufferedReader(new FileReader("Ficheros/data.csv"))) {
             String linea;
             int contador = 0;
             while ((linea = bufferedReader.readLine()) != null) {
@@ -287,10 +288,10 @@ public class Ejercicios01 {
         //otro archivo. El programa debe tomar como entrada el nombre del archivo de origen y el
         //nombre del archivo de destino
 
-        File nuevoFichero = new File("src/main/java/copiaData.txt");
+        File nuevoFichero = new File("Ficheros/copiaData.txt");
 
-        try (BufferedReader bufferedReader = new BufferedReader(new FileReader("data.csv"));
-          BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("copiaData.txt"));) {
+        try (BufferedReader bufferedReader = new BufferedReader(new FileReader("Ficheros/data.csv"));
+          BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("Ficheros/copiaData.txt"));) {
             nuevoFichero.createNewFile();
             String linea;
             while ((linea = bufferedReader.readLine()) != null) {
@@ -321,14 +322,14 @@ public class Ejercicios01 {
         //de origen y escribir su contenido en el archivo de destino en el orden en que se
         //especificaron en la lista
 
-        File fichero1 = new File("data.csv");
-        File fichero2 = new File("congreso.csv");
-        File ficheroConjunto = new File("ficheroConjunto.csv");
+        File fichero1 = new File("Ficheros/data.csv");
+        File fichero2 = new File("Ficheros/congreso.csv");
+        File ficheroConjunto = new File("Ficheros/ficheroConjunto.csv");
         List<File> listaFicheros = new ArrayList<>(Arrays.asList(fichero1, fichero2));
 
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(ficheroConjunto))) {
-            for (File f : listaFicheros) {
-                try (BufferedReader br = new BufferedReader(new FileReader(f))) {
+            for (File file : listaFicheros) {
+                try (BufferedReader br = new BufferedReader(new FileReader(file))) {
                     String linea;
                     while ((linea = br.readLine()) != null) {
                         bw.write(linea);
@@ -361,7 +362,7 @@ public class Ejercicios01 {
         Producto producto5 = new Producto(5, "Jugo de Naranja", 1.50, true, 'A');
 
         List<Producto> productos = new ArrayList<>(Arrays.asList(producto1, producto2, producto3, producto4, producto5));
-        File filePath = new File("productos.dat");
+        File filePath = new File("Ficheros/productos.dat");
 
         //Escribir en el fichero
         try (RandomAccessFile raf = new RandomAccessFile(filePath, "rw")) {
@@ -403,31 +404,7 @@ public class Ejercicios01 {
         //Ej17. Devuelve todas las rutas a partir de un directorio dado que cumplen una condición. Por
         //ejemplo, busca todos los archivos “*.txt”
 
-        String originalFile = "congreso.csv";
-        String switchedFile = "archivoRemplazado.csv";
-        String findString = "PSOE";
-        String switchedString = "(Pedro sanchez os engaña)";
 
-        findAndReplace(findString, switchedString, originalFile, switchedFile);
-    }
-
-    private static void findAndReplace(String findString, String switchedString, String originalFile,
-                                       String switchedFile) {
-        File of = new File(originalFile);
-        File sf = new File(switchedFile);
-        try (BufferedReader br = new BufferedReader(new FileReader(of))) {
-            try (BufferedWriter bw = new BufferedWriter(new FileWriter(sf))) {
-                String line = "";
-                while ((line = br.readLine()) != null) {
-                    String modLine = line.replace(findString, switchedString);
-                    bw.write(modLine + "\n");
-                }
-            }
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
     }
 
 //----------------------------------------------------------------------------------------------------------------------
@@ -445,7 +422,7 @@ public class Ejercicios01 {
         //Ej19. Extraer todas las direcciones IP de un texto:
         //Descripción: Dado un texto, extraer todas las direcciones IP válidas.
 
-        String filePath = "ips.txt";
+        String filePath = "Ficheros/ips.txt";
         String regex = "^\\d{1,3}(\\.\\d{1,3}){3}$";
         Pattern pattern = Pattern.compile(regex);
 
@@ -469,6 +446,14 @@ public class Ejercicios01 {
     private static void ej20() {
         //Ej20. Descripción: Validar si una cadena es un número de teléfono en el formato (XXX) XXX-XXXX.
 
+        String telefonNumber = "(618) 839-4699";
+        String regex = "\\([1-9]{3}\\)\s[1-9]{3}-[1-9]{4}";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(telefonNumber);
+
+        if (matcher.find()) {
+            System.out.println(matcher.group());
+        }
     }
 
 //----------------------------------------------------------------------------------------------------------------------
@@ -477,6 +462,24 @@ public class Ejercicios01 {
         //Ej21. Extraer todas las fechas en formato DD/MM/YYYY:
         //Descripción: Dado un texto, extraer todas las fechas en el formato DD/MM/YYYY.
 
+        String filePath = "Ficheros/fechasFormateadas.txt";
+        String regex = "(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[0-2])/[0-9]{4}";
+        Pattern pattern = Pattern.compile(regex);
+
+
+        try (BufferedReader br = new BufferedReader(new FileReader(new File(filePath)))) {
+            String line = null;
+            while ((line = br.readLine()) != null) {
+                Matcher matcher = pattern.matcher(line);
+                if (matcher.find()) {
+                    System.out.println(matcher.group());
+                }
+            }
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 //----------------------------------------------------------------------------------------------------------------------
@@ -487,6 +490,13 @@ public class Ejercicios01 {
         //(al menos 8 caracteres, una letra mayúscula, una letra minúscula, un número y un
         //carácter especial).
 
+        String password = "holabuenA1*s";
+        String regex = "^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%^&*()_+\\[\\]{};':\"\\\\|,.<>/?-]).{8,}$";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(password);
+        if (matcher.find()) {
+            System.out.println("felicidades");
+        } else System.out.println("la contraseña es erronea");
     }
 
 //----------------------------------------------------------------------------------------------------------------------
@@ -496,5 +506,24 @@ public class Ejercicios01 {
         //Descripción: Dado un texto, extraer todas las palabras que empiezan con una letra
         //mayúscula.
 
+        String filePath = "Ficheros/ficheroMayusculas.txt";
+        String regex = "[A-Z]{1,}";
+        Pattern pattern = Pattern.compile(regex);
+
+        try (BufferedReader br = new BufferedReader(new FileReader(new File(filePath)))) {
+            String line = null;
+            while ((line = br.readLine()) != null) {
+                Arrays.stream(line.split("\\s+")).forEach(w -> {
+                    Matcher matcher = pattern.matcher(w);
+                    if (matcher.find()) {
+                        System.out.println(w);
+                    }
+                });
+            }
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

@@ -1,15 +1,31 @@
 package Clases;
 
 public class Persona {
+    int id;
     String nombre;
+    String apellido;
+    String curso;
+    int nota;
     int edad;
 
     public Persona() {
     }
 
-    public Persona(String nombre, int edad) {
+    public Persona(int id, String nombre, String apellido, String curso, int nota, int edad) {
+        this.id = id;
         this.nombre = nombre;
+        this.apellido = apellido;
+        this.curso = curso;
+        this.nota = nota;
         this.edad = edad;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNombre() {
@@ -20,6 +36,22 @@ public class Persona {
         this.nombre = nombre;
     }
 
+    public String getApellido() {
+        return apellido;
+    }
+
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
+
+    public String getCurso() {
+        return curso;
+    }
+
+    public void setCurso(String curso) {
+        this.curso = curso;
+    }
+
     public int getEdad() {
         return edad;
     }
@@ -28,11 +60,23 @@ public class Persona {
         this.edad = edad;
     }
 
+    public int getNota() {
+        return nota;
+    }
+
+    public void setNota(int nota) {
+        this.nota = nota;
+    }
+
     @Override
     public String toString() {
         return "Persona{" +
-                "nombre='" + nombre + '\'' +
+                "id=" + id +
+                ", nombre='" + nombre + '\'' +
+                ", apellido='" + apellido + '\'' +
+                ", curso='" + curso + '\'' +
                 ", edad=" + edad +
+                ", nota=" + nota +
                 '}';
     }
 }
