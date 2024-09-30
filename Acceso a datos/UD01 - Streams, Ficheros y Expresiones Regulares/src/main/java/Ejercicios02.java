@@ -181,8 +181,8 @@ public class Ejercicios02 {
 
         try (BufferedReader br = new BufferedReader(new FileReader(new File(filePath)))) {
             String line = null;
-            String firstLine = br.readLine();
-            String[] parts = firstLine.split(",");
+            line = br.readLine();
+            String[] parts = line.split(",");
             int nameIndex = Arrays.asList(parts).indexOf("productName");
             int priceIndex = Arrays.asList(parts).indexOf("unitPrice");
             int categoryIndex = Arrays.asList(parts).indexOf("categoryID");
@@ -199,7 +199,10 @@ public class Ejercicios02 {
             List<Productos> filteredProductsInPriceRange = products.stream().filter(product ->
                     product.getPrice() > 10 && product.getPrice() < 30).toList();
 
-            System.out.println(theMostPrice);
+            for (Map.Entry<Integer, Optional<Productos>> entry : theMostPrice.entrySet()) {
+                System.out.println(entry);
+            }
+            System.out.println("----------------------");
             filteredProductsInPriceRange.forEach(product -> System.out.println("nombre: " + product.getName() +
                     " con precio: " + product.getPrice()));
         } catch (FileNotFoundException e) {
@@ -1554,73 +1557,74 @@ public class Ejercicios02 {
         // Imprime la lista de productos, pero limitando el número de productos devueltos a 50 (muestra los 50
         // primeros, operador limit en sql)
 
-        String filePath = "Ficheros/products.csv";
-        List<Products> products = new ArrayList<>();
+        try {
+            List<Products> products = new ArrayList<>();
+            String filePath = ImportFiles.getProduct("products.csv");
+            try (BufferedReader br = new BufferedReader(new FileReader(new File(filePath)))) {
+                String line = null;
+                line = br.readLine();
+                while ((line = br.readLine()) != null) {
+                    String[] parts = line.split(",");
+                    int productID = Integer.parseInt(parts[0]);
+                    String productName = parts[1];
+                    int supplierID = Integer.parseInt(parts[2]);
+                    int categoryID = Integer.parseInt(parts[3]);
+                    String quantityPerUnit = parts[4];
+                    double unitPrice = Double.parseDouble(parts[5]);
+                    int unitsInStock = Integer.parseInt(parts[6]);
+                    int unitsOnOrder = Integer.parseInt(parts[7]);
+                    int reorderLevel = Integer.parseInt(parts[8]);
+                    boolean discontinued = Boolean.parseBoolean(parts[9]);
+                    products.add(new Products(productID, productName, supplierID, categoryID, quantityPerUnit, unitPrice,
+                            unitsInStock, unitsOnOrder, reorderLevel, discontinued));
+                }
 
-        try (BufferedReader br = new BufferedReader(new FileReader(new File(filePath)))) {
-            String line = null;
-            br.readLine();
-            while ((line = br.readLine()) != null) {
-                String[] words = line.split(",");
-                int productID = Integer.parseInt(words[0]);
-                String productName = words[1];
-                int supplierID = Integer.parseInt(words[2]);
-                int categoryID = Integer.parseInt(words[3]);
-                String quantityPerUnit = words[4];
-                double unitPrice = Double.parseDouble(words[5]);
-                int unitsInStock = Integer.parseInt(words[6]);
-                int unitsOnOrder = Integer.parseInt(words[7]);
-                int reorderLevel = Integer.parseInt(words[8]);
-                boolean discontinued = Boolean.parseBoolean(words[9]);
-                products.add(new Products(productID, productName, supplierID, categoryID, quantityPerUnit, unitPrice,
-                        unitsInStock, unitsOnOrder, reorderLevel, discontinued));
+                System.out.println("\npunto 1");
+                products.forEach(System.out::println);
+
+                System.out.println("\npunto 2");
+                List<String> names = products.stream().map(Products::getProductName).toList();
+                names.forEach(System.out::println);
+
+                System.out.println("\npunto 3");
+                products.stream().filter(product -> product.getUnitsInStock() < 10).forEach(System.out::println);
+
+                System.out.println("\npunto 4");
+                products.stream().filter(product -> product.getUnitsInStock() < 10).sorted(Comparator.comparing(
+                        Products::getUnitsInStock)).forEach(System.out::println);
+
+                System.out.println("\npunto 5");
+                products.stream().filter(product -> product.getUnitsInStock() < 10).sorted(Comparator.comparing(
+                        Products::getUnitsInStock)).forEach(product -> System.out.println(product.getProductName()));
+
+                System.out.println("\npunto 6");
+                products.stream().filter(product -> product.getUnitsInStock() < 10).sorted(Comparator.comparing(
+                        Products::getUnitsInStock).reversed()).forEach(product -> System.out.println(
+                        product.getProductName()));
+
+                System.out.println("\npunto 7");
+
+
+                System.out.println("\npunto 8");
+
+
+                System.out.println("\npunto 9");
+
+
+                System.out.println("\npunto 10");
+
+
+                System.out.println("\npunto 11");
+
+
+                System.out.println("\npunto 12");
+
+
+            } catch (FileNotFoundException e) {
+                throw new RuntimeException(e);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
             }
-
-
-            System.out.println("\npunto 1");
-            products.forEach(System.out::println);
-
-            System.out.println("\npunto 2");
-            List<String> names = products.stream().map(Products::getProductName).toList();
-            names.forEach(System.out::println);
-
-            System.out.println("\npunto 3");
-            products.stream().filter(product -> product.getUnitsInStock() < 10).forEach(System.out::println);
-
-            System.out.println("\npunto 4");
-            products.stream().filter(product -> product.getUnitsInStock() < 10).sorted(Comparator.comparing(
-                    Products::getUnitsInStock)).forEach(System.out::println);
-
-            System.out.println("\npunto 5");
-            products.stream().filter(product -> product.getUnitsInStock() < 10).sorted(Comparator.comparing(
-                    Products::getUnitsInStock)).forEach(product -> System.out.println(product.getProductName()));
-
-            System.out.println("\npunto 6");
-            products.stream()
-                    .filter(product -> product.getUnitsInStock() < 10).sorted(Comparator.comparing(
-                            Products::getUnitsInStock).reversed()).forEach(product -> System.out.println(
-                                    product.getProductName()));
-
-            System.out.println("\npunto 7");
-
-
-            System.out.println("\npunto 8");
-
-
-            System.out.println("\npunto 9");
-
-
-            System.out.println("\npunto 10");
-
-
-            System.out.println("\npunto 11");
-
-
-            System.out.println("\npunto 12");
-
-
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
