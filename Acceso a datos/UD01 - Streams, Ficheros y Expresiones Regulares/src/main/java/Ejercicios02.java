@@ -231,7 +231,7 @@ public class Ejercicios02 {
                 "que era muy poco. Todo esto sancho panza, " +
                 "que era su criado, lo llevaba en su asno.";
 
-        Map<String, Long> wordCounter = Arrays.stream(longText.split("\\W+")).map(String::toLowerCase)
+        Map<String, Long> wordCounter = Arrays.stream(longText.toLowerCase().split("\\W+"))
                 .collect(Collectors.groupingBy(word -> word, Collectors.counting()));
         wordCounter.forEach((word, counter) -> System.out.println("la palabra: " + word + " se repite: " + counter +
                 "veces"));
@@ -277,20 +277,20 @@ public class Ejercicios02 {
         carsPerson9.add(new Car("Land Rover", "Beige", "WXY901"));
         carsPerson9.add(new Car("Jaguar", "Azul claro", "ZAB234"));
         carsPerson10.add(new Car("Lexus", "Negro mate", "CDE567"));
-        carsPerson10.add(new Car("Mitsubishi", "Rojo brillante", "FGH890"));
+        carsPerson10.add(new Car("Mitsubishi", "Rojo", "FGH890"));
 
-        Person person1 = new Person("Nombre1", "DNI1", carsPerson1);
-        Person person2 = new Person("Nombre2", "DNI2", carsPerson2);
-        Person person3 = new Person("Nombre3", "DNI3", carsPerson3);
-        Person person4 = new Person("Nombre4", "DNI4", carsPerson4);
-        Person person5 = new Person("Nombre5", "DNI5", carsPerson5);
-        Person person6 = new Person("Nombre6", "DNI6", carsPerson6);
-        Person person7 = new Person("Nombre7", "DNI7", carsPerson7);
-        Person person8 = new Person("Nombre8", "DNI8", carsPerson8);
-        Person person9 = new Person("Nombre9", "DNI9", carsPerson9);
-        Person person10 = new Person("Nombre10", "DNI10", carsPerson10);
-        List<Person> persons = new ArrayList<>(Arrays.asList(person1, person2, person3, person4, person5, person6,
-                person7, person8, person9, person10));
+        List<Person> persons = new ArrayList<>(Arrays.asList(
+            new Person("Nombre1", "DNI1", carsPerson1),
+            new Person("Nombre2", "DNI2", carsPerson2),
+            new Person("Nombre3", "DNI3", carsPerson3),
+            new Person("Nombre4", "DNI4", carsPerson4),
+            new Person("Nombre5", "DNI5", carsPerson5),
+            new Person("Nombre6", "DNI6", carsPerson6),
+            new Person("Nombre7", "DNI7", carsPerson7),
+            new Person("Nombre8", "DNI8", carsPerson8),
+            new Person("Nombre9", "DNI9", carsPerson9),
+            new Person("Nombre10", "DNI10", carsPerson10)
+        ));
 
         List<Person> personsWhitRedCars = persons.stream().filter(person -> person.getCars().stream()
                 .anyMatch(car -> car.getColor().equalsIgnoreCase("rojo"))).toList();
