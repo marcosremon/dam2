@@ -6,35 +6,43 @@ import java.util.List;
 
 public class Ejercicio2 {
     public static void main(String[] args) throws InterruptedException {
-        long programSeconds = 32;
-        long totalSum = 0;
-        Thread th = new Thread();
-        String importantInfo[] = { "Programas", "Procesos", "Servicios", "Hilos" };
-        List<String> message = new ArrayList<>(Arrays.asList("esperando...", "Todavía esperando...",
-                "Todavía esperando...", "Cansado de esperar"));
+        long maxWaitTime = 2 * 1000;
+        long programDuration = 16 * 1000;
+        long startTime = System.currentTimeMillis();
 
-        th.start();
-        for (int i = 0; i < 4; i++) {
-            long startTime = System.currentTimeMillis();
-            System.out.println(importantInfo[i]);
-            extractMessages(message, th);
-            totalSum += (System.currentTimeMillis() - startTime);
-            programSeconds = programSeconds*1000;
-            if (totalSum >= programSeconds) {
-                for (int j = i+1; j < importantInfo.length; j++) {
-                    System.out.println(importantInfo[j]);
+        Thread childThread = new Thread(() -> {
+            String[] messages = { "Programas", "Procesos", "Servicios", "Hilos" };
+            try {
+                for (int i = 0; i < messages.length; i++) {
+                    System.out.println("Hilo: " + Thread.currentThread().getName() + ". " + messages[i]);
+                    Thread.sleep(4000);
                 }
-                break;
+            } catch (InterruptedException e) {
+                System.out.println("Hilo: " + Thread.currentThread().getName() + " fue interrumpido. Terminando " +
+                        "rápido.");
+                for (int i = 1; i < messages.length; i++) {
+                    System.out.println("Hilo: " + Thread.currentThread().getName() + ". " + messages[i]);
+                }
+            } finally {
+                System.out.println("Hilo: " + Thread.currentThread().getName() + ". *** Finalizado ***");
             }
-        }
-    }
+        });
+        childThread.start();
 
-    private static void extractMessages(List<String> message, Thread th) throws InterruptedException {
-        int CONSTANT_SECONDS = 1;
-        for (int i = 0; i < 4; i++) {
-            th.sleep(CONSTANT_SECONDS * 1000);
-            System.out.println(message.get(i));
+        System.out.println("Hilo: main. Tiempo de espera: " + (maxWaitTime / 1000) + "s");
+        while (childThread.isAlive() && (System.currentTimeMillis() - startTime) < maxWaitTime) {
+            System.out.println("Hilo: main. Esperando a que el hilo " + childThread.getName() + " termine");
+            Thread.sleep(1000);
         }
-        System.out.println("---------------------");
+
+        if (childThread.isAlive()) {
+            System.out.println("Hilo: main. Cansado de esperar. Interrumpiendo el hilo " + childThread.getName());
+            childThread.interrupt();
+        }
+        childThread.join();
+
+        long endTime = System.currentTimeMillis();
+        System.out.println("Hilo: main. *** Finalizado. Tiempo de ejecución: " + (endTime - startTime) / 1000 +
+                "s ***");
     }
 }
