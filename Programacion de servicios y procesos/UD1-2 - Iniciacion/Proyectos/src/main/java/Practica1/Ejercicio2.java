@@ -17,7 +17,7 @@ public class Ejercicio2 {
                     Thread.sleep(4000);
                 }
             } catch (InterruptedException e) {
-                System.out.println("hilo: " + Thread.currentThread().getName() + " fue interrumpido. Terminando " +
+                System.out.println("hilo: " + Thread.currentThread().getName() + " fue interrumpido. terminando " +
                         "rapido.");
                 for (int i = 1; i < messages.length; i++) {
                     System.out.println("hilo: " + Thread.currentThread().getName() + ". " + messages[i]);
@@ -28,20 +28,20 @@ public class Ejercicio2 {
         });
         th.start();
 
-        System.out.println("hilo: main. Tiempo de espera: " + (maxWaitTime / 1000) + "s");
+        System.out.println("hilo: main. tiempo de espera: " + (maxWaitTime / 1000) + "s");
         while (th.isAlive() && (System.currentTimeMillis() - startTime) < maxWaitTime) {
-            System.out.println("Hilo: main. Todavía esperando...");
+            System.out.println("hilo: main. todavía esperando...");
             Thread.sleep(1000);
         }
 
         if (th.isAlive()) {
-            System.out.println("hilo: main. Cansado de esperar. Interrumpiendo el hilo " + th.getName());
+            System.out.println("hilo: main. cansado de esperar. interrumpiendo el hilo " + th.getName());
             th.interrupt();
         }
         th.join();
 
         long endTime = System.currentTimeMillis();
-        System.out.println("hilo: main. *** Finalizado. Tiempo de ejecución: " + (endTime - startTime) / 1000 +
+        System.out.println("hilo: main. *** finalizado. tiempo de ejecución: " + (endTime - startTime) / 1000 +
                 "s. ***");
     }
 }
