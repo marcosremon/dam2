@@ -1,0 +1,104 @@
+Instituto con id:1
+La persona con dni: 00000001L, nombre: Elena es profesor con id: 1 true
+Lista de profesores: 
+La persona con dni: 12839475B, nombre: Pedro es profesor con id: 20 true
+La persona con dni: 36472819H, nombre: Sofia es profesor con id: 21 true
+La persona con dni: 94857362V, nombre: Javier es profesor con id: 22 false
+La persona con dni: 38475961L, nombre: Marta es profesor con id: 23 true
+La persona con dni: 29837564G, nombre: Raul es profesor con id: 24 true
+La persona con dni: 84736291X, nombre: Paula es profesor con id: 25 true
+La persona con dni: 52647382W, nombre: Sergio es profesor con id: 26 false
+La persona con dni: 63728459R, nombre: Elena es profesor con id: 27 true
+La persona con dni: 19283746D, nombre: Diego es profesor con id: 28 true
+La persona con dni: 76543219P, nombre: Alicia es profesor con id: 29 true
+Lista de alumnos:
+La persona con dni: 36458358G, nombre: Luca es estudiante con id: 1 y asignaturas y notas: {Matematicas=5.4998055, Historia=4.8720407, Educacion Fisica=2.0660567, Geografia=5.8754835, Programacion=1.4914881, Fisica=3.1560352}
+La persona con dni: 28374651H, nombre: Nia es estudiante con id: 2 y asignaturas y notas: {Matematicas=2.917202, Historia=6.0036187, Educacion Fisica=6.252525, Geografia=2.4678257, Programacion=3.165137, Fisica=3.1720335}
+La persona con dni: 84726319J, nombre: Santiago es estudiante con id: 3 y asignaturas y notas: {Matematicas=4.41677, Historia=7.6012506, Educacion Fisica=5.440236, Geografia=5.7273684, Programacion=4.2117453, Fisica=4.6344566}
+La persona con dni: 37492015K, nombre: Valeria es estudiante con id: 4 y asignaturas y notas: {Matematicas=4.5703883, Historia=3.4069574, Educacion Fisica=6.499516, Geografia=1.0653313, Programacion=5.530334, Fisica=2.669272}
+La persona con dni: 83749206L, nombre: Mateo es estudiante con id: 5 y asignaturas y notas: {Matematicas=7.695614, Historia=1.2016561, Educacion Fisica=4.550904, Geografia=6.591106, Programacion=6.903352, Fisica=1.4480331}
+La persona con dni: 94736281M, nombre: Sofia es estudiante con id: 6 y asignaturas y notas: {Matematicas=7.0024314, Historia=6.1300383, Educacion Fisica=2.5789418, Geografia=8.073261, Programacion=7.682014, Fisica=2.403629}
+La persona con dni: 10293847N, nombre: Martín es estudiante con id: 7 y asignaturas y notas: {Matematicas=2.9149342, Historia=1.5632219, Educacion Fisica=6.183555, Geografia=2.9377594, Programacion=1.7061601, Fisica=4.420827}
+La persona con dni: 56473829O, nombre: Camila es estudiante con id: 8 y asignaturas y notas: {Matematicas=8.963481, Historia=7.9133167, Educacion Fisica=5.3341026, Geografia=6.8981466, Programacion=9.277495, Fisica=7.849481}
+La persona con dni: 83749205P, nombre: Dario es estudiante con id: 9 y asignaturas y notas: {Matematicas=8.268049, Historia=9.964701, Educacion Fisica=7.1398683, Geografia=3.8287385, Programacion=6.023188, Fisica=7.47956}
+La persona con dni: 38475612Q, nombre: Ariana es estudiante con id: 10 y asignaturas y notas: {Matematicas=7.2683506, Historia=7.417241, Educacion Fisica=5.467342, Geografia=7.594766, Programacion=7.3277755, Fisica=9.435892}
+La persona con dni: 93847561R, nombre: Emiliano es estudiante con id: 11 y asignaturas y notas: {Matematicas=2.0971308, Historia=8.684528, Educacion Fisica=2.844118, Geografia=4.8676825, Programacion=9.424493, Fisica=6.915472}
+La persona con dni: 83749204S, nombre: Isabella es estudiante con id: 12 y asignaturas y notas: {Matematicas=1.1522155, Historia=4.042157, Educacion Fisica=6.2785687, Geografia=9.790829, Programacion=8.058315, Fisica=6.508183}
+La persona con dni: 64738291T, nombre: Gabriel es estudiante con id: 13 y asignaturas y notas: {Matematicas=9.906121, Historia=1.9719746, Educacion Fisica=5.275279, Geografia=6.7305503, Programacion=4.93506, Fisica=8.596889}
+La persona con dni: 94857362U, nombre: Luciana es estudiante con id: 14 y asignaturas y notas: {Matematicas=4.173096, Historia=2.3823519, Educacion Fisica=9.3796015, Geografia=8.188431, Programacion=3.898812, Fisica=1.0929937}
+La persona con dni: 28374658V, nombre: Sebastian es estudiante con id: 15 y asignaturas y notas: {Matematicas=1.0821238, Historia=9.35468, Educacion Fisica=4.820059, Geografia=8.509085, Programacion=9.281263, Fisica=7.1649776}
+La persona con dni: 48392017W, nombre: Catalina es estudiante con id: 16 y asignaturas y notas: {Matematicas=3.2620995, Historia=6.3089466, Educacion Fisica=1.39032, Geografia=3.5377862, Programacion=7.3587146, Fisica=7.281013}
+La persona con dni: 39485712X, nombre: Bruno es estudiante con id: 17 y asignaturas y notas: {Matematicas=2.1287189, Historia=1.3317366, Educacion Fisica=3.645771, Geografia=5.7656474, Programacion=5.173931, Fisica=4.587989}
+La persona con dni: 29384751Y, nombre: Renata es estudiante con id: 18 y asignaturas y notas: {Matematicas=4.3810883, Historia=6.173216, Educacion Fisica=1.337503, Geografia=7.9717197, Programacion=4.829656, Fisica=8.423527}
+La persona con dni: 10293846Z, nombre: Thiago es estudiante con id: 19 y asignaturas y notas: {Matematicas=9.31075, Historia=5.514726, Educacion Fisica=1.8581963, Geografia=2.5702868, Programacion=6.126783, Fisica=6.8964696}
+
+Instituto con id:2
+La persona con dni: 00000002L, nombre: Luna es profesor con id: 2 true
+Lista de profesores: 
+La persona con dni: 29384756T, nombre: Victor es profesor con id: 32 true
+La persona con dni: 37584921Z, nombre: Patricia es profesor con id: 33 true
+La persona con dni: 84716253L, nombre: David es profesor con id: 34 true
+La persona con dni: 56473892N, nombre: Sara es profesor con id: 35 false
+La persona con dni: 90817254C, nombre: Pablo es profesor con id: 36 true
+La persona con dni: 23847569S, nombre: Lucia es profesor con id: 37 true
+La persona con dni: 19283745X, nombre: Daniel es profesor con id: 38 true
+La persona con dni: 98473216V, nombre: Ines es profesor con id: 39 true
+La persona con dni: 98457632J, nombre: Manuel es profesor con id: 30 true
+La persona con dni: 18374629F, nombre: Clara es profesor con id: 31 false
+Lista de alumnos:
+La persona con dni: 28374659M, nombre: Florencia es estudiante con id: 32 y asignaturas y notas: {Matematicas=4.4914613, Historia=7.1737614, Educacion Fisica=6.3854947, Geografia=9.761785, Programacion=9.461441, Fisica=3.3325136}
+La persona con dni: 48392018N, nombre: Franco es estudiante con id: 33 y asignaturas y notas: {Matematicas=6.552709, Historia=4.3447704, Educacion Fisica=2.823613, Geografia=7.940885, Programacion=1.1855294, Fisica=7.868984}
+La persona con dni: 39485713O, nombre: Paulina es estudiante con id: 34 y asignaturas y notas: {Matematicas=6.6806717, Historia=9.430493, Educacion Fisica=7.9829497, Geografia=1.2028663, Programacion=3.7769873, Fisica=7.760395}
+La persona con dni: 29384752P, nombre: Nicolas es estudiante con id: 35 y asignaturas y notas: {Matematicas=5.9972277, Historia=9.633226, Educacion Fisica=3.359315, Geografia=2.0551395, Programacion=7.221387, Fisica=1.2378336}
+La persona con dni: 10293844Q, nombre: Aitana es estudiante con id: 36 y asignaturas y notas: {Matematicas=4.608925, Historia=1.6869932, Educacion Fisica=6.872035, Geografia=1.7178793, Programacion=7.4389634, Fisica=9.084166}
+La persona con dni: 84726317R, nombre: Ezequiel es estudiante con id: 37 y asignaturas y notas: {Matematicas=1.586919, Historia=2.9188752, Educacion Fisica=6.9193673, Geografia=1.9161649, Programacion=8.190159, Fisica=7.8526087}
+La persona con dni: 37492014S, nombre: Alejandra es estudiante con id: 38 y asignaturas y notas: {Matematicas=7.313147, Historia=9.695547, Educacion Fisica=3.383019, Geografia=5.6501074, Programacion=9.19501, Fisica=4.02543}
+La persona con dni: 83749200T, nombre: Iván es estudiante con id: 39 y asignaturas y notas: {Matematicas=4.7276216, Historia=5.5374594, Educacion Fisica=3.8937168, Geografia=2.4388254, Programacion=6.327924, Fisica=9.816156}
+La persona con dni: 84726318A, nombre: Julieta es estudiante con id: 20 y asignaturas y notas: {Matematicas=6.572027, Historia=6.2007637, Educacion Fisica=6.885962, Geografia=1.4312074, Programacion=8.006142, Fisica=3.158212}
+La persona con dni: 37492016B, nombre: Tomas es estudiante con id: 21 y asignaturas y notas: {Matematicas=9.904153, Historia=8.994225, Educacion Fisica=6.7629843, Geografia=7.7883286, Programacion=2.7884107, Fisica=3.123898}
+La persona con dni: 83749203C, nombre: Emilia es estudiante con id: 22 y asignaturas y notas: {Matematicas=4.6340356, Historia=1.0980482, Educacion Fisica=5.5517535, Geografia=4.4605074, Programacion=1.3922329, Fisica=2.2099671}
+La persona con dni: 94736282D, nombre: Joaquin es estudiante con id: 23 y asignaturas y notas: {Matematicas=3.789058, Historia=5.26106, Educacion Fisica=7.1826973, Geografia=7.50863, Programacion=2.9834073, Fisica=3.2197566}
+La persona con dni: 10293845E, nombre: Agustina es estudiante con id: 24 y asignaturas y notas: {Matematicas=7.7137613, Historia=7.559014, Educacion Fisica=7.3423357, Geografia=8.796045, Programacion=1.2326553, Fisica=6.753021}
+La persona con dni: 56473828F, nombre: Facundo es estudiante con id: 25 y asignaturas y notas: {Matematicas=6.6800175, Historia=9.660163, Educacion Fisica=6.330841, Geografia=7.2218165, Programacion=6.41129, Fisica=3.4760938}
+La persona con dni: 83749202G, nombre: Victoria es estudiante con id: 26 y asignaturas y notas: {Matematicas=7.713399, Historia=1.2162474, Educacion Fisica=9.80253, Geografia=8.252932, Programacion=1.3871286, Fisica=2.4214878}
+La persona con dni: 38475613H, nombre: Lucas es estudiante con id: 27 y asignaturas y notas: {Matematicas=4.828862, Historia=5.3660746, Educacion Fisica=3.850586, Geografia=4.062619, Programacion=1.687373, Fisica=6.728647}
+La persona con dni: 93847562I, nombre: Mia es estudiante con id: 28 y asignaturas y notas: {Matematicas=2.9067602, Historia=5.1888027, Educacion Fisica=8.104866, Geografia=6.1292763, Programacion=2.4501026, Fisica=3.4485831}
+La persona con dni: 83749201J, nombre: Benjamin es estudiante con id: 29 y asignaturas y notas: {Matematicas=5.7090006, Historia=5.758531, Educacion Fisica=5.238848, Geografia=2.27289, Programacion=4.8963995, Fisica=6.6962404}
+La persona con dni: 64738290K, nombre: Valentina es estudiante con id: 30 y asignaturas y notas: {Matematicas=7.053646, Historia=9.542368, Educacion Fisica=1.8705823, Geografia=3.13858, Programacion=9.761038, Fisica=9.969171}
+La persona con dni: 94857363L, nombre: Federico es estudiante con id: 31 y asignaturas y notas: {Matematicas=5.565165, Historia=8.763721, Educacion Fisica=6.504932, Geografia=7.745982, Programacion=4.818113, Fisica=5.818647}
+
+Instituto con id:3
+La persona con dni: 00000003L, nombre: Pedro es profesor con id: 3 true
+Lista de profesores: 
+La persona con dni: 76543215E, nombre: Joaquin es profesor con id: 48 true
+La persona con dni: 98457631H, nombre: Eva es profesor con id: 49 true
+La persona con dni: 72635481M, nombre: Oscar es profesor con id: 40 false
+La persona con dni: 18375649G, nombre: Teresa es profesor con id: 41 true
+La persona con dni: 29384716A, nombre: Gabriel es profesor con id: 42 true
+La persona con dni: 37584926Y, nombre: Isabel es profesor con id: 43 true
+La persona con dni: 84726319B, nombre: Alberto es profesor con id: 44 true
+La persona con dni: 52647389U, nombre: Andrea es profesor con id: 45 false
+La persona con dni: 63728451O, nombre: Roberto es profesor con id: 46 true
+La persona con dni: 19283746Q, nombre: Nuria es profesor con id: 47 true
+Lista de alumnos:
+La persona con dni: 94736283U, nombre: Claudia es estudiante con id: 40 y asignaturas y notas: {Matematicas=6.520975, Historia=7.7169867, Educacion Fisica=6.630734, Geografia=7.621932, Programacion=3.9534626, Fisica=2.7541208}
+La persona con dni: 10293843V, nombre: Daniel es estudiante con id: 41 y asignaturas y notas: {Matematicas=7.1179724, Historia=1.8291917, Educacion Fisica=4.6232023, Geografia=1.9341862, Programacion=9.444303, Fisica=6.3240657}
+La persona con dni: 56473827W, nombre: Liliana es estudiante con id: 42 y asignaturas y notas: {Matematicas=5.5531564, Historia=3.455912, Educacion Fisica=6.805349, Geografia=7.808503, Programacion=5.283396, Fisica=4.8309298}
+La persona con dni: 83749199X, nombre: Pablo es estudiante con id: 43 y asignaturas y notas: {Matematicas=9.495085, Historia=8.64159, Educacion Fisica=8.476568, Geografia=3.3152506, Programacion=6.1464686, Fisica=9.882475}
+La persona con dni: 38475614Y, nombre: Lourdes es estudiante con id: 44 y asignaturas y notas: {Matematicas=8.599603, Historia=9.026628, Educacion Fisica=4.535982, Geografia=8.23703, Programacion=1.1743225, Fisica=8.872986}
+La persona con dni: 93847563Z, nombre: Esteban es estudiante con id: 45 y asignaturas y notas: {Matematicas=8.6891575, Historia=1.6379786, Educacion Fisica=8.935604, Geografia=7.8422112, Programacion=5.0400567, Fisica=2.9433641}
+La persona con dni: 83749198A, nombre: Cecilia es estudiante con id: 46 y asignaturas y notas: {Matematicas=1.3171452, Historia=9.732476, Educacion Fisica=5.8074803, Geografia=6.370458, Programacion=9.494507, Fisica=8.027691}
+La persona con dni: 64738289B, nombre: Miguel es estudiante con id: 47 y asignaturas y notas: {Matematicas=3.9248774, Historia=3.1056364, Educacion Fisica=9.361094, Geografia=1.0596814, Programacion=5.5677867, Fisica=7.4806113}
+La persona con dni: 94857364C, nombre: Carla es estudiante con id: 48 y asignaturas y notas: {Matematicas=5.9866576, Historia=5.3268495, Educacion Fisica=3.1299691, Geografia=2.885822, Programacion=3.7532458, Fisica=9.235276}
+La persona con dni: 28374660D, nombre: Andres es estudiante con id: 49 y asignaturas y notas: {Matematicas=8.884367, Historia=5.690313, Educacion Fisica=9.357631, Geografia=3.236094, Programacion=6.2736735, Fisica=9.311394}
+La persona con dni: 48392019E, nombre: Daniela es estudiante con id: 50 y asignaturas y notas: {Matematicas=9.428906, Historia=9.953868, Educacion Fisica=4.367896, Geografia=1.209345, Programacion=3.9374008, Fisica=7.9966726}
+La persona con dni: 39485714F, nombre: Gonzalo es estudiante con id: 51 y asignaturas y notas: {Matematicas=6.8463535, Historia=5.6868606, Educacion Fisica=1.5146637, Geografia=9.355481, Programacion=6.9627366, Fisica=4.3012066}
+La persona con dni: 29384753G, nombre: Clara es estudiante con id: 52 y asignaturas y notas: {Matematicas=9.940811, Historia=8.1743355, Educacion Fisica=7.1513247, Geografia=9.491816, Programacion=8.267595, Fisica=4.7984705}
+La persona con dni: 10293842H, nombre: Ricardo es estudiante con id: 53 y asignaturas y notas: {Matematicas=1.2961353, Historia=5.0638914, Educacion Fisica=8.703285, Geografia=4.025666, Programacion=5.9375305, Fisica=8.436173}
+La persona con dni: 84726316I, nombre: Eugenia es estudiante con id: 54 y asignaturas y notas: {Matematicas=8.310041, Historia=7.2087183, Educacion Fisica=4.1314497, Geografia=3.9640205, Programacion=2.3858547, Fisica=3.0841317}
+La persona con dni: 37492013J, nombre: Mauricio es estudiante con id: 55 y asignaturas y notas: {Matematicas=6.3351617, Historia=3.0867705, Educacion Fisica=3.1043763, Geografia=1.4730321, Programacion=2.512292, Fisica=6.526301}
+La persona con dni: 83749197K, nombre: Lorena es estudiante con id: 56 y asignaturas y notas: {Matematicas=4.4225802, Historia=1.9981935, Educacion Fisica=8.500812, Geografia=9.087762, Programacion=5.3182206, Fisica=6.962829}
+La persona con dni: 94736284L, nombre: Raul es estudiante con id: 57 y asignaturas y notas: {Matematicas=6.50426, Historia=8.612282, Educacion Fisica=7.214777, Geografia=7.816833, Programacion=3.0630128, Fisica=5.447729}
+La persona con dni: 10293841M, nombre: Margarita es estudiante con id: 58 y asignaturas y notas: {Matematicas=7.7839527, Historia=1.1080878, Educacion Fisica=7.8875194, Geografia=8.512977, Programacion=9.263969, Fisica=7.123373}
+La persona con dni: 56473826N, nombre: Alfonso es estudiante con id: 59 y asignaturas y notas: {Matematicas=5.372689, Historia=7.82365, Educacion Fisica=7.458505, Geografia=5.885242, Programacion=9.510791, Fisica=6.414831}
+

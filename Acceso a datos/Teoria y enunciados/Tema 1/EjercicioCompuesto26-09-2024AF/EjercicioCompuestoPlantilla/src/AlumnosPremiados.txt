@@ -1,0 +1,2 @@
+La persona con dni: 84726319J, nombre: Santiago es estudiante con id: 3 y asignaturas y notas: {Matematicas=5.2, Educacion Fisica=9.1, Historia=5.9, Geografia=9.9, Programacion=5.2, Fisica=8.9}
+La persona con dni: 39485714F, nombre: Gonzalo es estudiante con id: 51 y asignaturas y notas: {Matematicas=9.8, Educacion Fisica=6.9, Historia=6.8, Geografia=5.4, Programacion=5.7, Fisica=7.6}
