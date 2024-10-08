@@ -1,0 +1,9 @@
+<resources>
+    <string name="btnJumanji">JUMANJI</string>
+    <string name="btnGravedad">GRAVITY</string>
+    <string name="btnElReyLeon">THE LION KING</string>
+    <string name="btnStarWar">STAR WARS</string>
+    <string name="btnElOrigen">INCEPTION</string>
+    <string name="btnToyStory">TOY STORY</string>
+    <string name="app_name" />
+</resources>

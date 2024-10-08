@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="btnJumanji">JUMANJI</string>
+    <string name="btnGravedad">GRAVEDAD</string>
+    <string name="btnElReyLeon">EL REY LEON</string>
+    <string name="btnStarWar">STAR WARS</string>
+    <string name="btnElOrigen">EL ORIGEN</string>
+    <string name="btnToyStory">TOY STORY</string>
+</resources>

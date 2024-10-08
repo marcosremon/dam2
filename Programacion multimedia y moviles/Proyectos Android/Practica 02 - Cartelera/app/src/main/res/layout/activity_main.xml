@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+
+        <ImageView
+            android:id="@+id/imgCine"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_marginTop="56dp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/cine"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/buttonLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/imgCine">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <Button
+                    android:id="@+id/btnJumanji"
+                    android:layout_width="213dp"
+                    android:layout_height="73dp"
+                    android:layout_weight="1"
+                    android:text="@string/btnJumanji"
+                    android:layout_margin="8dp" />
+
+                <Button
+                    android:id="@+id/btnGravedad"
+                    android:layout_width="213dp"
+                    android:layout_height="73dp"
+                    android:layout_weight="1"
+                    android:text="@string/btnGravedad"
+                    android:layout_margin="8dp" />
+
+                <Button
+                    android:id="@+id/btnElReyLeon"
+                    android:layout_width="213dp"
+                    android:layout_height="73dp"
+                    android:layout_weight="1"
+                    android:text="@string/btnElReyLeon"
+                    android:layout_margin="8dp" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnStarWar"
+                android:layout_width="match_parent"
+                android:layout_height="63dp"
+                android:text="@string/btnStarWar"
+                android:layout_marginTop="16dp"
+                android:layout_margin="8dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <Button
+                    android:id="@+id/btnElOrigen"
+                    android:layout_width="213dp"
+                    android:layout_height="71dp"
+                    android:layout_margin="8dp"
+                    android:layout_weight="1"
+                    android:text="@string/btnElOrigen" />
+
+                <Button
+                    android:id="@+id/btnToyStory"
+                    android:layout_width="213dp"
+                    android:layout_height="73dp"
+                    android:layout_margin="8dp"
+                    android:layout_weight="1"
+                    android:text="@string/btnToyStory" />
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
