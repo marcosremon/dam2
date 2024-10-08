@@ -11,6 +11,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class Ejercicios00 {
     public static void main(String[] args) {
@@ -192,6 +193,8 @@ public class Ejercicios00 {
 //----------------------------------------------------------------------------------------------------------------------
 
     private static void ej8(Map<Integer, Instituto> mapadeInstitutos) {
+        List<Instituto> listaFusion = new ArrayList<>(GeneradordeDatos.listaInstitutos.get().values().stream().toList());
+        listaFusion.addAll(GeneradordeDatos.listaInstitutos.get().values().stream().toList());
 
     }
 
