@@ -273,9 +273,9 @@ public class Ejercicios00 {
 //----------------------------------------------------------------------------------------------------------------------
 
     private static void ej12(Map<Integer, Instituto> mapadeInstitutos) {
-        Map<String, Integer> oculto = new HashMap<>(GeneradordeDatos.finalizar.get());
+        Map<String, Integer> hiddenMessage = new HashMap<>(GeneradordeDatos.finalizar.get());
         StringBuilder sb = new StringBuilder();
-        oculto.entrySet().stream().collect(Collectors.groupingBy(Map.Entry::getValue)).forEach((unused, letter) ->
+        hiddenMessage.entrySet().stream().collect(Collectors.groupingBy(Map.Entry::getValue)).forEach((unused, letter) ->
                 sb.append(letter.getFirst().getKey()));
         System.out.println(sb);
     }
