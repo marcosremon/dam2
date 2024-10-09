@@ -3,6 +3,7 @@ package EjerciciosRepaso;
 
 
 import EjerciciosRepaso.Generador.GeneradordeDatos;
+import EjerciciosRepaso.model.Estudiante;
 import EjerciciosRepaso.model.Instituto;
 import Metods.Metods;
 
@@ -11,7 +12,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.*;
-import java.util.stream.Collectors;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class Ejercicios00 {
     public static void main(String[] args) {
@@ -44,7 +45,7 @@ public class Ejercicios00 {
                 ej7(mapadeInstitutos);
                 break;
             case 8:
-                ej8(mapadeInstitutos);
+                ej8();
                 break;
             case 9:
                 ej9(mapadeInstitutos);
@@ -192,22 +193,59 @@ public class Ejercicios00 {
 
 //----------------------------------------------------------------------------------------------------------------------
 
-    private static void ej8(Map<Integer, Instituto> mapadeInstitutos) {
+    private static void ej8() {
         List<Instituto> listaFusion = new ArrayList<>(GeneradordeDatos.listaInstitutos.get().values().stream().toList());
         listaFusion.addAll(GeneradordeDatos.listaInstitutos.get().values().stream().toList());
-
+        listaFusion.stream().distinct().forEach(institute -> System.out.println(institute.getDirector().toString()));
     }
 
 //----------------------------------------------------------------------------------------------------------------------
 
     private static void ej9(Map<Integer, Instituto> mapadeInstitutos) {
+        File file = new File(Metods.importFiles("formatedInfo.txt"));
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(file))) {
+            StringBuilder sb = new StringBuilder();
+            mapadeInstitutos.entrySet().stream().forEach(institute -> {
+                institute.getValue().getMapdeEstudiantes().forEach((id, students) -> {
+                    Map<String, Float> subjectNotes = students.getListaAsignaturasyNotas();
+                    subjectNotes.replaceAll((subject, note) -> {
+                        return Math.round(note * 10f) / 10f;
+                    });
+                });
+                sb.append("Instituto con id: ").append(institute.getKey()).append("\n").append(institute.getValue()
+                        .getDirector()).append("\n").append("Lista de profesores:\n");
+                institute.getValue().getMapdeProfesores().entrySet().forEach(teacher -> sb.append(teacher.getValue().toString() + "\n"));
+                sb.append("Lista de alumnos:\n");
+                institute.getValue().getMapdeEstudiantes().entrySet().forEach(student -> sb.append(student.getValue().toString() + "\n"));
+                sb.append("\n");
+            });
 
+            bw.write(String.valueOf(sb));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 //----------------------------------------------------------------------------------------------------------------------
 
     private static void ej10(Map<Integer, Instituto> mapadeInstitutos) {
+        File file = new File(Metods.importFiles("losMejoresAlumnos.txt"));
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(file))) {
+            StringBuilder sb = new StringBuilder();
+            mapadeInstitutos.entrySet().forEach(institute -> {
+                institute.getValue().getMapdeEstudiantes().values().forEach(student -> {
+                    boolean bestNotes = student.getListaAsignaturasyNotas().values().stream()
+                            .allMatch(note -> note >= 9.0);
+                    if (bestNotes){
+                        sb.append(student.toString() + "\n");
+                    }
+                });
+            });
 
+            bw.write(String.valueOf(sb));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 //----------------------------------------------------------------------------------------------------------------------
