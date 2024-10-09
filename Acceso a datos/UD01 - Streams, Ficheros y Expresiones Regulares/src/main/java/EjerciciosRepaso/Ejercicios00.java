@@ -12,7 +12,8 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.*;
-import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicReference;
+import java.util.stream.Collectors;
 
 public class Ejercicios00 {
     public static void main(String[] args) {
@@ -236,7 +237,7 @@ public class Ejercicios00 {
                 institute.getValue().getMapdeEstudiantes().values().forEach(student -> {
                     boolean bestNotes = student.getListaAsignaturasyNotas().values().stream()
                             .allMatch(note -> note >= 9.0);
-                    if (bestNotes){
+                    if (bestNotes) {
                         sb.append(student.toString() + "\n");
                     }
                 });
@@ -251,6 +252,16 @@ public class Ejercicios00 {
 //----------------------------------------------------------------------------------------------------------------------
 
     private static void ej11(Map<Integer, Instituto> mapadeInstitutos) {
+        StringBuilder sb = new StringBuilder();
+        Map<String, Float> a = new TreeMap<>();
+        mapadeInstitutos.entrySet().forEach(institute -> {
+            institute.getValue().getMapdeEstudiantes().values().forEach(student -> {
+                student.getListaAsignaturasyNotas().entrySet().stream().forEach((subject, note) -> {
+                    System.out.printf("", Collectors.groupingBy(Estudiante::getListaAsignaturasyNotas));
+                });
+            });
+        });
+        System.out.println(a);
 
     }
 
