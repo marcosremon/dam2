@@ -3,7 +3,6 @@ package EjerciciosRepaso;
 
 
 import EjerciciosRepaso.Generador.GeneradordeDatos;
-import EjerciciosRepaso.model.Estudiante;
 import EjerciciosRepaso.model.Instituto;
 import Metods.Metods;
 
@@ -12,6 +11,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.*;
+import java.util.Map.Entry;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.stream.Collectors;
 
@@ -252,22 +252,31 @@ public class Ejercicios00 {
 //----------------------------------------------------------------------------------------------------------------------
 
     private static void ej11(Map<Integer, Instituto> mapadeInstitutos) {
-        StringBuilder sb = new StringBuilder();
-        Map<String, Float> a = new TreeMap<>();
-        mapadeInstitutos.entrySet().forEach(institute -> {
-            institute.getValue().getMapdeEstudiantes().values().forEach(student -> {
-                student.getListaAsignaturasyNotas().entrySet().stream().forEach((subject, note) -> {
-                    System.out.printf("", Collectors.groupingBy(Estudiante::getListaAsignaturasyNotas));
-                });
-            });
-        });
-        System.out.println(a);
+        mapadeInstitutos.forEach((id, institute) -> {
+            System.out.println("Medias del Instituto con id: " + id);
+            Map<String, Double> notesSum = institute.getMapdeEstudiantes().values().stream().flatMap(student ->
+                    student.getListaAsignaturasyNotas().entrySet().stream()).collect(Collectors.groupingBy(
+                            Entry::getKey, Collectors.summingDouble(Entry::getValue)));
+            Map<String, Long> subjectConter = institute.getMapdeEstudiantes().values().stream().flatMap(student ->
+                    student.getListaAsignaturasyNotas().entrySet().stream()).collect(Collectors.groupingBy(
+                            Entry::getKey, Collectors.counting()));
 
+            notesSum.forEach((subject, notes) -> {
+                long notesCounting = subjectConter.get(subject);
+                double average = notes / notesCounting;
+                System.out.println(subject + " " + Math.round(average * 100f) / 100f);
+            });
+            System.out.println();
+        });
     }
 
 //----------------------------------------------------------------------------------------------------------------------
 
     private static void ej12(Map<Integer, Instituto> mapadeInstitutos) {
-
+        Map<String, Integer> oculto = new HashMap<>(GeneradordeDatos.finalizar.get());
+        StringBuilder sb = new StringBuilder();
+        oculto.entrySet().stream().collect(Collectors.groupingBy(Map.Entry::getValue)).forEach((unused, letter) ->
+                sb.append(letter.getFirst().getKey()));
+        System.out.println(sb);
     }
 }
