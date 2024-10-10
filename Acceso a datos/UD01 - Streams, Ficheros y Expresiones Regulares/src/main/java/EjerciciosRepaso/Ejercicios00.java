@@ -58,7 +58,7 @@ public class Ejercicios00 {
                 ej11(mapadeInstitutos);
                 break;
             case 12:
-                ej12(mapadeInstitutos);
+                ej12();
                 break;
             default:
                 System.out.println("ejercicio no valido");
@@ -195,7 +195,8 @@ public class Ejercicios00 {
 //----------------------------------------------------------------------------------------------------------------------
 
     private static void ej8() {
-        List<Instituto> listaFusion = new ArrayList<>(GeneradordeDatos.listaInstitutos.get().values().stream().toList());
+        List<Instituto> listaFusion = new ArrayList<>(GeneradordeDatos.listaInstitutos.get().values().stream()
+                .toList());
         listaFusion.addAll(GeneradordeDatos.listaInstitutos.get().values().stream().toList());
         listaFusion.stream().distinct().forEach(institute -> System.out.println(institute.getDirector().toString()));
     }
@@ -215,9 +216,11 @@ public class Ejercicios00 {
                 });
                 sb.append("Instituto con id: ").append(institute.getKey()).append("\n").append(institute.getValue()
                         .getDirector()).append("\n").append("Lista de profesores:\n");
-                institute.getValue().getMapdeProfesores().entrySet().forEach(teacher -> sb.append(teacher.getValue().toString() + "\n"));
+                institute.getValue().getMapdeProfesores().entrySet().forEach(teacher -> sb.append(teacher.getValue()
+                        .toString() + "\n"));
                 sb.append("Lista de alumnos:\n");
-                institute.getValue().getMapdeEstudiantes().entrySet().forEach(student -> sb.append(student.getValue().toString() + "\n"));
+                institute.getValue().getMapdeEstudiantes().entrySet().forEach(student -> sb.append(student.getValue()
+                        .toString() + "\n"));
                 sb.append("\n");
             });
 
@@ -272,11 +275,11 @@ public class Ejercicios00 {
 
 //----------------------------------------------------------------------------------------------------------------------
 
-    private static void ej12(Map<Integer, Instituto> mapadeInstitutos) {
+    private static void ej12() {
         Map<String, Integer> hiddenMessage = new HashMap<>(GeneradordeDatos.finalizar.get());
         StringBuilder sb = new StringBuilder();
-        hiddenMessage.entrySet().stream().collect(Collectors.groupingBy(Map.Entry::getValue)).forEach((unused, letter) ->
-                sb.append(letter.getFirst().getKey()));
+        hiddenMessage.entrySet().stream().collect(Collectors.groupingBy(Map.Entry::getValue))
+                .forEach((unused, letter) -> sb.append(letter.getFirst().getKey()));
         System.out.println(sb);
     }
 }
