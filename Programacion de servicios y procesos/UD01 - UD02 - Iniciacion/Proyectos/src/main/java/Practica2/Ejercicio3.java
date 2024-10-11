@@ -18,16 +18,6 @@ public class Ejercicio3 {
         coche4.start();
         coche5.start();
 
-        try {
-            coche1.join();
-            coche2.join();
-            coche3.join();
-            coche4.join();
-            coche5.join();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
         System.out.println("Simulación de estacionamiento finalizada.");
     }
 }
