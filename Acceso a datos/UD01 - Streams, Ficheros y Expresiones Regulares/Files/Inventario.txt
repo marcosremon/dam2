@@ -1,0 +1,39 @@
+Nombre,Categoría,Cantidad,Valor
+Poción de Curación,Potion,25,120.50
+Espada Larga,Weapon,15,300.00
+Elixir de la Vida,Potion,50,200.00
+Armadura de Cuero,Armor,10,150.00
+Poción de Fuerza,Potion,40,180.00
+Hacha de Guerra,Weapon,5,350.00
+Poción de Mana,Potion,60,220.00
+Espada de Fuego,Weapon,8,500.00
+Armadura de Hierro,Armor,12,250.00
+Poción de Velocidad,Potion,35,160.00
+Daga Envenenada,Weapon,20,300.00
+Poción de Sabiduría,Potion,45,210.00
+Escudo Resistente,Armor,18,350.00
+Báculo de Magia,Potion,30,300.00
+Armadura de Acero,Armor,9,400.00
+Poción de Invisibilidad,Potion,20,180.00
+Hacha de Batalla,Weapon,7,320.00
+Elixir de Resistencia,Potion,15,250.00
+Espada Larga de Hielo,Weapon,11,450.00
+Poción de Curación Avanzada,Potion,5,300.00
+Armadura de Caballero,Armor,6,550.00
+Poción de Fuerza Bestial,Potion,25,500.00
+Hacha de Tiempos Antiguos,Weapon,4,600.00
+Capa de Sombras,Armor,8,200.00
+Poción de Agilidad,Potion,55,275.00
+Espada Corta de Acero,Weapon,14,180.00
+Armadura Mágica,Armor,3,700.00
+Poción de Resistencia, Potion, 45, 230.00
+Espada de la Verdad,Weapon,9,480.00
+Poción de Recuperación Rápida,Potion,35,300.00
+Hacha de Guerra de los Gigantes,Weapon,2,800.00
+Cota de Malla,Armor,20,450.00
+Poción de Alquimia,Potion,60,220.00
+Martillo de Thor,Weapon,1,1200.00
+Poción de Curación Completa,Potion,10,500.00
+Escudo del Dragón,Armor,4,750.00
+Elixir de Vida Eterna,Potion,2,1000.00
+Poción de Resurrección,Potion,1,1500.00
