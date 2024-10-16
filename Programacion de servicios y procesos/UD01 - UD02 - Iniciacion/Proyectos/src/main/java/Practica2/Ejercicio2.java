@@ -1,5 +1,8 @@
 package Practica2;
 
+import Practica2.Models.Shop;
+import Practica2.Models.User;
+
 public class Ejercicio2 {
     public static void main(String[] args) {
         Shop shop = new Shop();

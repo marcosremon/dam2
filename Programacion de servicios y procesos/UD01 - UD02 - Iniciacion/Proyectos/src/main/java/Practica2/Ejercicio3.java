@@ -1,6 +1,7 @@
 package Practica2;
 
-import java.util.concurrent.Semaphore;
+import Practica2.Models.Coche;
+import Practica2.Models.Parking;
 
 public class Ejercicio3 {
     public static void main(String[] args) {

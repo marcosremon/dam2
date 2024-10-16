@@ -14,6 +14,9 @@ public class Ejercicio1 {
         humidityThread.start();
         for (int i = 0; i < FINAL_TIMER; i++) {
             Thread.sleep(1000);
+            if (!temperatureThread.isAlive() && !humidityThread.isAlive()) {
+                break;
+            }
         }
         temperatureThread.interrupt();
         humidityThread.interrupt();
