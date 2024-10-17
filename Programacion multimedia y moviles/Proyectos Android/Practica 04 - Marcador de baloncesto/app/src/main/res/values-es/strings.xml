@@ -1,9 +1,9 @@
 <resources>
-    <string name="app_name">Practice 04 - Basketball Scoreboard</string>
-    <string name="tvTitle">Final Score</string>
+    <string name="app_name">Práctica 04 - Marcador de Baloncesto</string>
+    <string name="tvTitle">Puntuación Final</string>
     <string name="tvLocal">Local</string>
-    <string name="tvVisitant">Visitor</string>
-    <string name="tvResult">The match ended in a tie.</string>
+    <string name="tvVisitant">Visitante</string>
+    <string name="tvResult">El partido terminó en empate.</string>
     <string name="tvLocalPoints">0</string>
     <string name="tvVisitantPoints">0</string>
     <string name="btnPointsPlusOneLocale">+ 1</string>
