@@ -1,5 +1,7 @@
 package Classes;
 
+import java.util.Objects;
+
 public class Song {
     String title;
     String singer;
@@ -26,6 +28,19 @@ public class Song {
 
     public void setSinger(String singer) {
         this.singer = singer;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Song song = (Song) o;
+        return Objects.equals(title, song.title) && Objects.equals(singer, song.singer);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(title, singer);
     }
 
     @Override

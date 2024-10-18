@@ -1,5 +1,7 @@
 package Classes;
 
+import java.util.Objects;
+
 public class Products {
     private int productID;
     private String productName;
@@ -107,6 +109,7 @@ public class Products {
     public void setDiscontinued(boolean discontinued) {
         this.discontinued = discontinued;
     }
+
 
     @Override
     public String toString() {

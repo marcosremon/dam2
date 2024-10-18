@@ -1,5 +1,7 @@
 package Classes;
 
+import java.util.Objects;
+
 public class Person3 {
     String name;
     int age;
@@ -26,6 +28,19 @@ public class Person3 {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Person3 person3 = (Person3) o;
+        return age == person3.age;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(age);
     }
 
     @Override
