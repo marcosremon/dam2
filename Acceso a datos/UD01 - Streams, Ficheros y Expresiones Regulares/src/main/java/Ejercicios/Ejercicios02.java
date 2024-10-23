@@ -3,6 +3,7 @@ package Ejercicios;
 import Classes.*;
 import Metods.Metods;
 import com.sun.source.tree.WhileLoopTree;
+import org.w3c.dom.ls.LSOutput;
 
 import java.io.*;
 import java.nio.file.Files;
@@ -292,8 +293,8 @@ public class Ejercicios02 {
 
         System.out.println("-----------------------");
         System.out.println("persona con mas coches");
-        Optional<Person> a = persons.stream().max(Comparator.comparing(person -> person.getCars().size()));
-        System.out.println(a);
+        Optional<Person> mostCars = persons.stream().max(Comparator.comparing(person -> person.getCars().size()));
+        System.out.println(mostCars);
 
     }
 
@@ -323,7 +324,8 @@ public class Ejercicios02 {
                 person.getCourse().equalsIgnoreCase("acceso a datos")).toList();
         List<Person2> threePoint = list.stream().filter(person -> person.getNotes() >= 5 && person.getCourse()
                 .equalsIgnoreCase("poo")).toList();
-        Map<String, Long> fourPoint = list.stream().collect(Collectors.groupingBy(Person2::getCourse, Collectors.counting()));
+        Map<String, Long> fourPoint = list.stream().collect(Collectors.groupingBy(Person2::getCourse,
+                Collectors.counting()));
 
         System.out.println("primer punto:");
         System.out.println(firstPoint);
@@ -1389,20 +1391,18 @@ public class Ejercicios02 {
             }
         }
 
-        List<Song> bonJovisSongs = songs.stream().filter(singer -> singer.getSinger().equalsIgnoreCase(
-                "bon jovi")).toList();
-        System.out.println("canciones bon jovi funcional");
-        bonJovisSongs.forEach(singer -> System.out.println(singer.getTitle()));
+        songs.stream().filter(singer -> singer.getSinger().equalsIgnoreCase("bon jovi"))
+                .forEach(System.out::println);
 
-        List<String> songsOfBonJovi = new ArrayList<>();
-        bonJovisSongs.forEach(song -> songsOfBonJovi.add(song.getTitle()));
+        List<String> songsOfBonJovi = songs.stream().filter(singer -> singer.getSinger().equalsIgnoreCase(
+                "bon jovi")).map(Song::getTitle).toList();
         System.out.println(songsOfBonJovi);
 
-        Long numberOfBonJoviSongs = songs.stream().filter(singer -> singer.getSinger().equalsIgnoreCase(
-                "bon jovi")).count();
+        System.out.println(songs.stream().filter(singer -> singer.getSinger().equalsIgnoreCase(
+                "bon jovi")).count());
 
-        System.out.println(numberOfBonJoviSongs);
-        Map<String, Long> numberOfSingersSongs = songs.stream().collect(Collectors.groupingBy(Song::getSinger, Collectors.counting()));
+        Map<String, Long> numberOfSingersSongs = songs.stream().collect(Collectors.groupingBy(Song::getSinger,
+                Collectors.counting()));
         System.out.println(numberOfSingersSongs);
 
         System.out.println("ultimo punto");
@@ -1493,9 +1493,8 @@ public class Ejercicios02 {
                 .forEach(System.out::println);
         
         System.out.println("\npunto 12");
-        List<Students> listaNueva = students.stream().filter(stu -> stu.getName().toLowerCase().startsWith("p") &&
-                stu.getName().length() <= 6).toList();
-        System.out.println(listaNueva);
+        students.stream().filter(stu -> stu.getName().toLowerCase().startsWith("p") && stu.getName().length() <= 6)
+                .forEach(System.out::println);
     }
 
     private static void addToList2(List<Students> list) {
@@ -1568,52 +1567,51 @@ public class Ejercicios02 {
             products.forEach(System.out::println);
 
             System.out.println("\npunto 2");
-            products.forEach(products1 -> System.out.println(products1.getProductName()));
+            products.stream().map(Products::getProductName).forEach(System.out::println);
 
             System.out.println("\npunto 3");
-            products.stream().filter(products1 -> products1.getUnitsInStock() < 10).forEach(products1 ->
-                    System.out.println(products1.getProductName()));
+            products.stream().filter(product -> product.getUnitsInStock() < 10).map(Products::getProductName)
+                    .forEach(System.out::println);
 
             System.out.println("\npunto 4");
-            products.stream().filter(products1 -> products1.getUnitsInStock() < 10).sorted(Comparator
-                    .comparing(Products::getUnitsInStock)).forEach(System.out::println);
+            products.stream().filter(product -> product.getUnitsInStock() < 10).sorted(Comparator.comparing(
+                    Products::getUnitsInStock)).map(Products::getProductName).forEach(System.out::println);
 
             System.out.println("\npunto 5");
-            products.stream().filter(products1 -> products1.getUnitsInStock() < 10).sorted(Comparator
-                    .comparing(Products::getUnitsInStock).reversed()).forEach(System.out::println);
+            products.stream().filter(product -> product.getUnitsInStock() < 10).sorted(Comparator.comparing(
+                    Products::getUnitsInStock).reversed()).map(Products::getProductName).forEach(System.out::println);
 
             System.out.println("\npunto 6");
-            products.stream().filter(product -> product.getUnitsInStock() >= 10).sorted(Comparator.comparingInt(
-                            Products::getUnitsInStock).reversed().thenComparing(Comparator.comparing(
-                                    Products::getProductName))).forEach(System.out::println);
+            products.stream().filter(product -> product.getUnitsInStock() > 10).sorted(Comparator.comparing(
+                    Products::getUnitsInStock).reversed().thenComparing(Products::getProductName)).map(
+                            Products::getProductName).forEach(System.out::println);
 
             System.out.println("\npunto 7");
-            products.stream().filter(product -> product.getUnitsInStock() >= 10).sorted(Comparator.comparing(
-                    Products::getProductName).reversed().thenComparing(Comparator.comparingInt(
-                    Products::getUnitsInStock))).forEach(System.out::println);
+            products.stream().filter(product -> product.getUnitsInStock() > 10).sorted(Comparator.comparing(
+                    Products::getProductName).reversed().thenComparing(Products::getUnitsInStock)).map(
+                            Products::getProductName).forEach(System.out::println);
 
             System.out.println("\npunto 8");
-            Map<Integer, Long> numberOfProducts = products.stream().collect(Collectors.groupingBy(
+            Map<Integer, Long> supplierNumberProduct = products.stream().collect(Collectors.groupingBy(
                     Products::getSupplierID, Collectors.counting()));
-            for (Map.Entry<Integer, Long> i : numberOfProducts.entrySet()) {
-                System.out.println(i.toString());
-            }
+            supplierNumberProduct.forEach((a, b) -> System.out.println(a + " " + b));
 
             System.out.println("\npunto 9");
-            Map<Integer, Double> stockSum = products.stream().collect(Collectors.groupingBy(Products::getUnitsInStock,
-                    Collectors.summingDouble(Products::getUnitPrice)));
-            stockSum.entrySet().stream().filter(i -> i.getValue() > 100).forEach(i -> System.out.println(
-                    "Existencias: " + i.getKey() + ", Suma del precio unitario: " + i.getValue()));
+            Map<Integer, Double> a = products.stream().collect(Collectors.groupingBy(Products::getUnitsInStock, Collectors.summingDouble(Products::getUnitPrice)));
+            a.entrySet().stream().filter(product -> product.getValue() > 100).forEach(System.out::println);
 
             System.out.println("\npunto 10");
-            int average = products.stream().collect(Collectors.summingInt(Products::getUnitsInStock));
-            System.out.println(average/products.size());
+            int productsSum = products.stream().collect(Collectors.summingInt(Products::getUnitsInStock));
+            int average = productsSum / products.size();
+            System.out.println("la media es: " + average);
 
             System.out.println("\npunto 11");
-            System.out.println(products.stream().max(Comparator.comparing(Products::getUnitPrice)));
+            Optional<Products> biggestUnitaryPrice = products.stream().max(Comparator.comparing(Products::getUnitPrice));
+            System.out.println(biggestUnitaryPrice);
 
             System.out.println("\npunto 12");
             products.stream().limit(50).forEach(System.out::println);
+
 
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);

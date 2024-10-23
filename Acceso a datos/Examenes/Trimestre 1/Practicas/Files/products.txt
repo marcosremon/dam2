@@ -1,0 +1,392 @@
+ID,Nombre,Precio,Cantidad,DíasParaExpirar 
+1,Leche,2.41,28,17
+2,Huevos,2.15,43,17
+3,Atún,1.35,27,8
+4,Olivas,2.15,20,8
+5,Sardinas,0.91,38,16
+6,Salmón,1.81,37,16
+7,Cordero,0.93,26,12
+8,Fresas,2.33,20,20
+9,Manzanas,1.27,25,12
+10,Peras,2.38,42,4
+11,Plátanos,2.1,41,15
+12,Uvas,2.3,34,8
+13,Naranjas,1.87,43,3
+14,Mandarinas,2.5,49,6
+15,Limones,1.02,41,5
+16,Pomelos,1.07,21,15
+17,Mangos,1.97,27,4
+18,Papayas,2.09,49,6
+19,Kiwis,1.81,32,20
+20,Sandías,2.06,38,10
+21,Melones,1.17,27,9
+22,Cerezas,2.31,50,7
+23,Ciruelas,2.15,46,17
+24,Duraznos,2.1,38,10
+25,Albaricoques,1.14,45,13
+26,Frambuesas,0.89,50,12
+27,Moras,0.86,47,6
+28,Arándanos,2.25,26,10
+29,Grosellas,2.02,37,10
+30,Higos,1.46,24,18
+31,Kakis,1.57,28,6
+32,Maracuyás,1.44,43,3
+33,Pitayas,2.21,47,5
+34,Granadas,1.15,50,9
+35,Lichis,1.27,25,15
+36,Mangostanes,1.6,29,4
+37,Rambutanes,1.18,34,12
+38,Maníes,1.86,21,20
+39,Almendras,2.45,36,6
+40,Nueces,1.47,26,3
+41,Anacardos,1.56,45,11
+42,Avellanas,2.0,27,18
+43,Pecanas,2.13,22,8
+44,Pistachos,1.87,42,20
+45,Semillas de Girasol,1.48,29,20
+46,Semillas de Calabaza,1.45,35,12
+47,Semillas de Chía,1.27,45,5
+48,Semillas de Sésamo,1.8,47,14
+49,Quinoa,2.09,22,18
+50,Arroz,1.34,28,15
+51,Trigo,1.8,21,20
+52,Maíz,1.23,22,16
+53,Avena,1.86,49,6
+54,Cebada,2.3,49,20
+55,Centeno,2.01,47,15
+56,Mijo,1.74,43,10
+57,Espelta,2.37,27,19
+58,Pan,1.58,32,13
+59,Pasta,1.4,50,3
+60,Fideos,2.03,36,5
+61,Cuscús,1.2,24,16
+62,Bulgur,1.53,34,16
+63,Polenta,1.22,48,20
+64,Harina de Trigo,1.22,44,5
+65,Harina de Maíz,2.23,28,5
+66,Harina de Avena,2.07,43,5
+67,Harina de Centeno,1.45,27,13
+68,Harina de Garbanzo,1.71,24,3
+69,Harina de Almendra,1.12,39,18
+70,Harina de Coco,2.36,20,18
+71,Patatas,2.39,38,15
+72,Batatas,1.33,33,11
+73,Boniatos,1.12,39,6
+74,Yucas,1.85,20,5
+75,Ñames,2.24,20,18
+76,Remolachas,1.63,27,17
+77,Zanahorias,0.95,28,12
+78,Nabos,1.73,31,11
+79,Rábanos,2.16,46,3
+80,Apios,1.74,22,17
+81,Puerros,1.9,44,5
+82,Cebollas,1.0,43,3
+83,Ajos,1.13,30,4
+84,Chalotes,1.06,20,13
+85,Cebolletas,1.03,20,19
+86,Pepinos,1.98,43,18
+87,Calabacines,0.85,36,18
+88,Berenjenas,1.05,35,17
+89,Tomates,1.09,22,11
+90,Pimientos,2.32,43,13
+91,Chiles,1.85,31,6
+92,Pimientos Rojos,0.88,48,11
+93,Pimientos Verdes,1.53,40,12
+94,Pimientos Amarillos,1.39,45,18
+95,Pimientos Naranjas,1.27,27,18
+96,Pimientos Picantes,2.05,48,12
+97,Pimientos Dulces,0.99,47,17
+98,Coles,1.48,38,18
+99,Coliflores,1.31,39,9
+100,Brócolis,1.2,44,5
+101,Romanescos,2.34,24,17
+102,Coles de Bruselas,1.07,23,4
+103,Coles Lombardas,1.76,29,20
+104,Coles Rizadas,1.95,31,17
+105,Coles Kale,1.1,49,4
+106,Espinacas,1.42,35,16
+107,Acelgas,2.49,32,19
+108,Lechugas,2.08,34,3
+109,Endivias,2.04,26,4
+110,Rúculas,2.17,28,5
+111,Canónigos,1.52,48,4
+112,Radicchios,2.19,48,15
+113,Berros,2.33,27,20
+114,Escarolas,2.15,44,7
+115,Achicorias,1.14,47,12
+116,Setas,0.89,48,10
+117,Champiñones,1.37,44,9
+118,Boletus,1.26,39,16
+119,Shiitakes,1.48,24,15
+120,Portobellos,1.83,21,7
+121,Hongos,1.59,30,8
+122,Trufas,1.33,28,16
+123,Tofu,2.03,40,17
+124,Tempeh,1.47,42,13
+125,Seitán,2.47,37,14
+126,Hummus,1.7,42,5
+127,Garbanzos,2.22,27,14
+128,Judías Verdes,1.19,26,20
+129,Judías Blancas,1.38,36,5
+130,Judías Rojas,1.61,48,9
+131,Judías Negras,2.43,24,15
+132,Frijoles,1.19,48,20
+133,Alubias,1.7,21,14
+134,Lentejas,1.1,31,13
+135,Guisantes,2.27,27,17
+136,Edamames,1.4,44,18
+137,Soja,1.53,26,10
+138,Almendra de Soja,1.64,49,19
+139,Sésamo,1.16,50,19
+140,Pipas de Calabaza,1.91,21,8
+141,Pipas de Girasol,1.89,48,14
+142,Lino,1.08,30,17
+143,Cacahuetes,2.37,24,14
+144,Copos de Avena,1.23,32,7
+145,Copos de Trigo,0.92,47,5
+146,Copos de Maíz,2.45,37,6
+147,Copos de Arroz,1.36,43,8
+148,Copos de Quinoa,2.07,21,4
+149,Levadura,1.5,43,16
+150,Polvo de Hornear,1.7,46,3
+151,Bicarbonato,1.8,46,17
+152,Azúcar,1.28,46,15
+153,Miel,1.1,22,20
+154,Sirope de Arce,1.28,38,16
+155,Sirope de Agave,1.62,45,19
+156,Sirope de Caña,0.97,25,14
+157,Jarabe de Maíz,1.37,39,19
+158,Fructosa,1.79,40,11
+159,Glucosa,1.35,26,16
+160,Lactosa,2.32,32,16
+161,Sacarina,1.7,22,20
+162,Aspartamo,1.11,50,10
+163,Stevia,1.85,34,16
+164,Eritritol,1.5,30,19
+165,Goma Xantana,1.78,21,17
+166,Goma Guar,1.21,40,18
+167,Gelatina,1.51,24,7
+168,Agar Agar,1.74,22,4
+169,Pectina,1.69,27,8
+170,Almíbar,1.97,44,5
+171,Mantequilla,1.23,41,14
+172,Margarina,2.13,29,12
+173,Aceite de Oliva,1.22,24,6
+174,Aceite de Girasol,0.96,30,3
+175,Aceite de Maíz,1.72,37,12
+176,Aceite de Soja,1.91,20,19
+177,Aceite de Palma,1.52,34,4
+178,Aceite de Coco,1.42,24,13
+179,Aceite de Sésamo,1.51,30,14
+180,Aceite de Cacahuete,2.28,30,18
+181,Aceite de Pepitas de Uva,1.4,32,8
+182,Aceite de Linaza,2.29,50,16
+183,Vinagre de Manzana,2.04,23,11
+184,Vinagre de Vino,2.25,26,16
+185,Vinagre de Arroz,1.38,50,11
+186,Vinagre Balsámico,1.74,28,16
+187,Salsa de Soja,1.85,36,8
+188,Salsa Teriyaki,1.66,36,19
+189,Salsa Barbacoa,1.91,29,13
+190,Ketchup,2.42,35,11
+191,Mostaza,1.78,42,14
+192,Mayonesa,1.97,40,14
+193,Salsa Worcestershire,1.04,32,13
+194,Salsa de Pimiento,1.39,22,15
+195,Salsa de Ostras,1.09,36,14
+196,Salsa de Pescado,0.86,32,8
+197,Salsa de Chile,1.31,42,11
+198,Salsa de Tomate,2.44,20,15
+199,Salsa Alfredo,1.48,48,9
+200,Salsa Carbonara,1.06,20,15
+201,Salsa Pesto,1.46,21,9
+202,Salsa Boloñesa,1.25,20,11
+203,Salsa Marinara,2.5,47,18
+204,Salsa de Champiñones,1.17,26,19
+205,Salsa de Tres Quesos,2.36,22,11
+206,Salsa de Queso Azul,1.6,44,3
+207,Salsa de Yogur,1.18,49,11
+208,Yogur Natural,1.94,47,3
+209,Yogur Griego,2.21,43,9
+210,Yogur de Vainilla,1.4,30,16
+211,Yogur de Fresa,1.97,32,9
+212,Yogur de Mango,0.97,27,5
+213,Yogur de Plátano,1.6,42,3
+214,Yogur de Piña,2.47,28,19
+215,Yogur de Coco,0.92,44,3
+216,Yogur de Soja,1.96,23,11
+217,Yogur de Almendra,0.86,25,14
+218,Yogur de Anacardo,0.87,31,5
+219,Yogur de Avena,2.46,45,5
+220,Yogur de Cereza,1.19,36,14
+221,Yogur de Mora,1.5,44,13
+222,Yogur de Arándano,2.06,37,5
+223,Yogur de Frambuesa,1.2,32,17
+224,Yogur de Melocotón,1.92,32,11
+225,Queso,1.03,44,10
+226,Queso de Cabra,1.67,21,4
+227,Queso de Oveja,1.02,44,4
+228,Queso de Vaca,1.08,28,16
+229,Queso Azul,1.65,22,6
+230,Queso Roquefort,0.99,30,6
+231,Queso Brie,2.25,39,20
+232,Queso Camembert,1.41,35,10
+233,Queso Cheddar,1.54,36,20
+234,Queso Emmental,1.36,47,10
+235,Queso Gruyère,1.4,20,14
+236,Queso Manchego,1.4,42,13
+237,Queso Parmesano,2.46,20,13
+238,Queso Provolone,1.9,20,7
+239,Queso Ricotta,0.95,39,12
+240,Queso Cottage,0.97,21,19
+241,Queso Fresco,2.13,37,12
+242,Queso de Bola,2.17,29,3
+243,Queso de Tetilla,1.96,34,9
+244,Queso Crema,2.13,32,8
+245,Queso Fundido,2.21,23,18
+246,Queso Rallado,1.45,25,9
+247,Queso en Lonchas,1.39,31,10
+248,Queso en Cuñas,1.87,24,18
+249,Queso en Barritas,1.64,36,17
+250,Queso en Triángulos,0.95,26,11
+251,Queso en Polvo,1.66,49,16
+252,Queso para Untar,1.68,44,17
+253,Mermelada de Fresa,1.09,40,18
+254,Mermelada de Frambuesa,1.66,25,14
+255,Mermelada de Mora,1.53,40,17
+256,Mermelada de Arándano,2.41,33,3
+257,Mermelada de Ciruela,1.83,29,13
+258,Mermelada de Melocotón,1.54,35,8
+259,Mermelada de Albaricoque,1.13,43,12
+260,Mermelada de Naranja,2.4,25,7
+261,Mermelada de Limón,1.94,33,13
+262,Mermelada de Mandarina,1.32,37,20
+263,Mermelada de Cereza,1.63,37,14
+264,Mermelada de Mango,0.97,34,6
+265,Mermelada de Piña,2.03,34,19
+266,Mermelada de Coco,1.69,45,5
+267,Mermelada de Kiwi,1.45,27,19
+268,Mermelada de Papaya,2.31,30,13
+269,Compota de Manzana,2.16,20,7
+270,Compota de Pera,2.28,50,20
+271,Compota de Ciruela,2.31,41,18
+272,Compota de Melocotón,2.37,26,9
+273,Compota de Albaricoque,1.54,37,5
+274,Compota de Cereza,0.99,35,12
+275,Compota de Fresa,2.3,39,8
+276,Compota de Frambuesa,2.31,47,19
+277,Compota de Mora,2.13,23,19
+278,Compota de Arándano,0.9,25,10
+279,Compota de Mango,1.13,39,6
+280,Compota de Piña,2.35,47,9
+281,Compota de Coco,2.3,41,20
+282,Compota de Kiwi,1.52,46,5
+283,Compota de Papaya,1.92,20,8
+284,Jugo de Naranja,2.49,24,8
+285,Jugo de Limón,1.38,43,13
+286,Jugo de Toronja,2.01,23,19
+287,Jugo de Mandarina,1.31,38,6
+288,Jugo de Manzana,1.47,24,14
+289,Jugo de Pera,1.78,26,20
+290,Jugo de Ciruela,1.01,29,16
+291,Jugo de Uva,1.81,44,6
+292,Jugo de Cereza,1.65,38,4
+293,Jugo de Mango,2.01,50,11
+294,Jugo de Piña,1.43,23,15
+295,Jugo de Coco,1.51,22,7
+296,Jugo de Kiwi,2.29,29,9
+297,Jugo de Papaya,0.92,21,14
+298,Leche de Almendra,1.9,32,5
+299,Leche de Soja,1.94,47,20
+300,Leche de Avena,2.11,29,9
+301,Leche de Coco,1.43,33,14
+302,Leche de Arroz,1.52,24,13
+303,Leche de Anacardo,2.41,43,8
+304,Leche de Avellana,2.43,37,19
+305,Leche de Macadamia,0.88,47,13
+306,Leche de Chufa,1.32,25,12
+307,Leche de Sésamo,1.04,44,11
+308,Leche de Cáñamo,1.69,33,18
+309,Pan de Molde,1.92,34,15
+310,Pan Integral,1.5,27,7
+311,Pan de Centeno,2.25,22,4
+312,Pan de Maíz,1.71,36,5
+313,Pan de Avena,1.31,23,16
+314,Pan de Espelta,1.81,41,6
+315,Pan de Trigo,2.49,34,5
+316,Pan de Malta,2.27,43,20
+317,Pan de Sarraceno,0.95,40,7
+318,Pan de Soja,1.58,21,19
+319,Pan de Semillas,2.5,22,16
+320,Pan de Nueces,1.33,44,17
+321,Pan de Pasas,1.93,22,14
+322,Pan de Higo,2.4,48,5
+323,Pan de Dátiles,1.02,41,8
+324,Pan de Plátano,1.9,42,15
+325,Pan de Naranja,1.41,43,7
+326,Pan de Zanahoria,1.87,34,17
+327,Pan de Calabacín,2.42,40,4
+328,Pan de Manzana,0.98,37,20
+329,Pan de Peras,0.88,23,19
+330,Pan de Ciruelas,1.67,36,19
+331,Pan de Cerezos,1.25,28,20
+332,Pan de Coco,2.19,36,16
+333,Pan de Kiwi,2.11,46,18
+334,Pan de Papaya,1.4,40,19
+335,Pan de Mango,1.68,29,15
+336,Pan de Piña,2.36,27,20
+337,Pan de Almendras,1.85,36,19
+338,Pan de Anacardos,2.1,32,20
+339,Pan de Avellanas,1.64,31,5
+340,Pan de Nueces de Macadamia,1.46,29,8
+341,Pan de Semillas de Girasol,2.08,49,7
+342,Pan de Semillas de Calabaza,1.25,28,14
+343,Pan de Semillas de Chía,0.92,27,5
+344,Pan de Semillas de Sésamo,1.68,21,20
+345,Pan de Semillas de Lino,1.08,42,17
+346,Pan de Semillas de Cáñamo,1.93,37,6
+347,Galletas de Chocolate,1.87,46,11
+348,Galletas de Vainilla,1.38,43,3
+349,Galletas de Naranja,1.59,31,17
+350,Galletas de Limón,0.86,41,19
+351,Galletas de Coco,1.29,30,8
+352,Galletas de Canela,1.25,46,7
+353,Galletas de Jengibre,1.1,35,17
+354,Galletas de Avena,1.64,42,16
+355,Galletas de Almendra,2.04,33,13
+356,Galletas de Anacardo,1.92,33,17
+357,Galletas de Avellana,1.55,21,12
+358,Galletas de Macadamia,2.34,46,17
+359,Galletas de Nueces,2.23,48,4
+360,Galletas de Semillas de Girasol,1.19,38,9
+361,Galletas de Semillas de Calabaza,1.0,26,13
+362,Galletas de Semillas de Chía,0.98,29,10
+363,Galletas de Semillas de Sésamo,0.96,46,4
+364,Galletas de Semillas de Lino,2.13,40,14
+365,Galletas de Semillas de Cáñamo,2.47,24,5
+366,Brownies,2.18,32,11
+367,Magdalenas,1.06,30,3
+368,Muffins,1.74,28,13
+369,Bizcochos,1.05,23,5
+370,Pasteles,1.39,33,5
+371,Tartas,2.1,50,4
+372,Soufflés,2.31,33,13
+373,Flam,1.61,46,10
+374,Natillas,0.95,43,4
+375,Pudines,1.43,32,7
+376,Gofres,0.9,33,17
+377,Crepes,1.47,43,18
+378,Donuts,2.26,37,13
+379,Rosquillas,1.52,36,11
+380,Croissants,2.01,20,20
+381,Empanadas,2.35,28,5
+382,Empanadillas,1.73,37,12
+383,Tostadas,1.33,41,19
+384,Sandwiches,2.38,46,19
+385,Bocadillos,0.91,39,12
+386,Hamburguesas,1.86,37,8
+387,Perritos Calientes,1.9,29,3
+388,Pizzas,1.45,39,20
+389,Emparedados,1.81,29,15
+390,Burritos,1.31,27,17
+391,Tacos,1.01,27,14
