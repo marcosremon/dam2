@@ -8,6 +8,5 @@ public class Ud03SpringApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(Ud03SpringApplication.class, args);
-
 	}
 }
