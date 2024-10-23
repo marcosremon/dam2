@@ -1,46 +1,42 @@
 package Practica1.Ejercicio4;
 
+import Methods.Methods;
 import Practica1.Ejercicio4.Modelo.Employee;
 
 import java.io.*;
-import java.util.ArrayList;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Comparator;
 import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        String filePath = "Files/employees.txt";
-        String filtredFile = "Files/filtred_emplyees.txt";
-        List<Employee> employees = new ArrayList<>();
 
-        try (BufferedReader br = new BufferedReader(new FileReader(filePath));
-            BufferedWriter bw = new BufferedWriter(new FileWriter(filtredFile))){
-            String line = null;
-            br.readLine();
-            while ((line = br.readLine()) != null) {
+        Path inputPath = Paths.get(Methods.importFiles("employees.txt"));
+        Path outputPath = Paths.get(Methods.importFiles("filtred_emplyees.txt"));
+
+        try (BufferedWriter bw = Files.newBufferedWriter(outputPath)) {
+            List<Employee> employees = Files.readAllLines(inputPath).stream().skip(1).map(line -> {
                 String[] parts = line.split(",");
-                String nameAndLastName = parts[0];
-                String[] nameAndLastNameParts = nameAndLastName.split("\s");
-                String name = nameAndLastNameParts[0];
-                String lastname = nameAndLastNameParts[1];
+                String completeName = parts[0];
+                String[] completeNameParts = completeName.split("\s");
+
+                String name = completeNameParts[0];
+                String lastName = completeNameParts[1];
                 int age = Integer.parseInt(parts[1]);
                 double salary = Double.parseDouble(parts[2]);
-                employees.add(new Employee(name, lastname, age, salary));
-            }
+                return new Employee(name, lastName, age, salary);
+             }).toList();
 
-            System.out.println("primer filtro");
-            List<Employee> firstPoint = employees.stream().filter(employee -> employee.getAge() >= 20 &&
+            List<Employee> filterEmployees = employees.stream().filter(employee -> employee.getAge() >= 20 &&
                             employee.getAge() <= 40 && employee.getSalary() >= 50000.0)
                     .sorted(Comparator.comparing(Employee::getSalary).reversed()).toList();
 
-            firstPoint.forEach(i -> System.out.println(i.toString()));
-            for (Employee i : firstPoint) {
-                System.out.println(i.toString());
-                bw.write(i.toString());
-                bw.newLine();
+            for (Employee employee : filterEmployees) {
+                System.out.println(employee);
+                bw.write(employee.toString() + System.lineSeparator());
             }
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

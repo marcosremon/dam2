@@ -1,36 +1,38 @@
 package Practica1.Ejercicio2;
 
+import Methods.Methods;
+
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 public class Main {
     public static void main(String[] args) {
-        String filePath = "Files/input.txt";
-        String floatTxtPath = "Files/Float.txt";
-        String intTxtPath = "Files/Integer.txt";
-        String stringTxtPath = "Files/String.txt";
 
-        try (BufferedReader br = new BufferedReader(new FileReader(filePath));
-             BufferedWriter bwFlo = new BufferedWriter(new FileWriter(floatTxtPath));
-             BufferedWriter bwInt = new BufferedWriter(new FileWriter(intTxtPath));
-             BufferedWriter bwStr = new BufferedWriter(new FileWriter(stringTxtPath))) {
+        Path inputPath = Paths.get(Methods.importFiles("input.txt"));
+        Path floatOutputPath = Paths.get(Methods.importFiles("Float.txt"));
+        Path integerOutputPath = Paths.get(Methods.importFiles("Integer.txt"));
+        Path stringOutputPath = Paths.get(Methods.importFiles("String.txt"));
+
+        try (BufferedReader br = Files.newBufferedReader(inputPath) ;
+             BufferedWriter bwFloat = Files.newBufferedWriter(floatOutputPath);
+             BufferedWriter bwInteger = Files.newBufferedWriter(integerOutputPath);
+             BufferedWriter bwString = Files.newBufferedWriter(stringOutputPath)) {
 
             String floatsRegex = "\\d+\\.\\d+";
             String integerRegex = "\\d+";
-            String stringRegex = ".*";
 
-            String line = null;
+            String line;
             while ((line = br.readLine()) != null) {
                 String[] parts = line.split("\s");
                 for (String i : parts) {
                     if (i.matches(floatsRegex)) {
-                        bwFlo.write(i);
-                        bwFlo.newLine();
+                        bwFloat.write(i + System.lineSeparator());
                     } else if (i.matches(integerRegex)) {
-                        bwInt.write(i);
-                        bwInt.newLine();
-                    } else if (i.matches(stringRegex)) {
-                        bwStr.write(i);
-                        bwStr.newLine();
+                        bwInteger.write(i + System.lineSeparator());
+                    } else {
+                        bwString.write(i + System.lineSeparator());
                     }
                 }
             }
